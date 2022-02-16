@@ -46,13 +46,16 @@ public class KalkulatorBMI {
                 heightScale = "inci"; 
             }
 
+            // Meminta input data massa dan tinggi badan ke user
             System.out.printf("Masukkan massa tubuh mahasiswa (%s) : ", massScale);
             double mass = input.nextDouble();
             System.out.printf("Masukkan tinggi tubuh mahasiswa (%s) : ", heightScale);
             double height = input.nextDouble();
 
+            // Melakukan perhitungan BMI dan mengembalikannya ke dalam variabel bmi
             double bmi = calculate(mass, height, scale);
 
+            // Melakukan penyesuaian BMI terhadap kriteria dari 4 kasus 
             if (bmi < 18.5) {
                 underWeight++;
             } else if (bmi < 25) {
@@ -62,10 +65,12 @@ public class KalkulatorBMI {
             } else if (bmi >= 30) {
                 obesWeight++;
             }
-            System.out.println(bmi);
+            System.out.printf("BMI : %f\n", bmi);
         }
+        // Menutup Scanner input
         input.close();
         
+        // Melakukan pencetakan data kuantitatif berdasarkan kriteria yang ada ke tampilan layar
         System.out.println("---------------------RINGKASAN DATA---------------------");
         System.out.printf("Berikut merupakan ringkasan hasil pengukuran BMI dari %d mahasiswa.\n", student);
         System.out.printf("Jumlah mahasiswa dengan berat badan di bawah normal: %d\n", underWeight);
@@ -87,7 +92,6 @@ public class KalkulatorBMI {
         if (scale.equals("IMPERIAL")) {
             result = 703 * mass / Math.pow(height, 2); // Rumus BMI skala IMPERIAL
         }
-        System.out.printf("TIMBANG HALO %f", result);
         return result;
     }
 }
