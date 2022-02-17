@@ -5,9 +5,9 @@ public class KalkulatorBMI {
         /* Program ini digunakan untuk mencari data kuantitatif BMI dari beberapa mahasiswa.
         Terdapat 4 kasus perhitungan skala BMI mahasiswa:
           1) Berat badan di bawah normal (BMI < 18.5)
-          2) Berat badan normal (18.5 < BMI < 25)
-          3) Berat badan di atas normal (25 < BMI < 30)
-          4) Berat badan obesitas (BMI > 30)
+          2) Berat badan normal (18.5 <= BMI < 25)
+          3) Berat badan di atas normal (25 <= BMI < 30)
+          4) Berat badan obesitas (BMI >= 30)
         Program akan meminta input jumlah mahasiswa yang akan didata, kemudian setiap 
         pendataan akan diberikan opsi dua buah skala ukuran yaitu:
           a) METRIK (kilogram, sentimeter)
