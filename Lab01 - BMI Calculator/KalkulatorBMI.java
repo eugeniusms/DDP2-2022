@@ -65,7 +65,6 @@ public class KalkulatorBMI {
             } else if (bmi >= 30) {
                 obesWeight++;
             }
-            System.out.printf("BMI : %f\n", bmi);
         }
         // Menutup Scanner input
         input.close();
