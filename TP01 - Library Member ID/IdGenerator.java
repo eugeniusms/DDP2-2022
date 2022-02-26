@@ -82,18 +82,23 @@ public class IdGenerator {
     /*
      * Method generateId adalah method untuk membuat ID keanggotaan perpustakaan
      * Parameter dan return type dari method ini tidak boleh diganti
+     * Method ini mengecek valid tidaknya parameternya kemudian mengembalikan
+     * string "ID Anggota: " dengan idAnggota diambil dari hasil checksum
+     * dengan getCheckSum()
      */
     public static String generateId(String programStudi, String angkatan, String tanggalLahir){
-        // TODO: Tuliskan implementasi untuk membuat ID keanggotaan perpustakaan
-        // Cek validitas masukan
+        // Cek terlebih dahulu validitas dari parameter generateId dengan method checkInputValidity
         if (checkInputValidity(programStudi, angkatan, tanggalLahir) == true) {
+            // Menyusun format ID Anggota sebelum ada checksum
             String idMahasiswa = programStudi + angkatan.substring(2) 
                                 + tanggalLahir.substring(0,2) 
                                 + tanggalLahir.substring(3,5)
                                 + tanggalLahir.substring(8);  
 
+            // Mengembalikan ID Anggota beserta checksum yang sudah didapati dengan method getChecksum
             return "ID Anggota: " + getChecksum(idMahasiswa);
         } else {
+            // Saat checkInputValidity dari parameter tidak terpenuhi (tidak valid)
             return "Input tidak valid!";
         }
     }
@@ -101,101 +106,150 @@ public class IdGenerator {
     /*
      * Method checkValidity adalah method untuk mengecek validitas ID keanggotaan perpustakaan
      * Parameter dan return type dari method ini tidak boleh diganti
+     * Method ini digunakan untuk mengecek valditas ID Anggota, pengecekan
+     * melewati beberapa tahap yaitu:
+     * 1. Pengecekan panjang idAnggota = 13
+     * 2. Pengecekan karakter idAnggota (Huruf UPPERCASE dan Angka)
+     * 3. Pengecekan nilai checksum idAnggota
+     * 
+     * Jika salah satu syarat di atas tidak terpenuhi, maka akan 
+     * dikembalikan nilai false dari method ini (tidak valid),
+     * jika memenuhi semua syarat maka akan dikembalikan nilai true (valid)
      */
     public static boolean checkValidity(String idAnggota) {
-        // TODO: Tuliskan implementasi untuk mengecek validitas ID keanggotaan perpustakaan
-        //------PLEASE CHECK VALIDITAS DULU HURUF ANGKA PANJANG-------
-        
+        // 1. Cek panjang idAnggota
+        if (idAnggota.length() != 13) {
+            return false;
+        }
+
+        // 2. Try digunakan sebagai validator huruf UPPERCASE dan angka saja dalam array valueToChar
+        try {
+            // Pengecekan dilakukan untuk semua karakter, jika ada dalam valueToChar, continue perulangan
+            for (int i = 0; i < idAnggota.length(); i++) {
+                char digit = idAnggota.charAt(i);
+                if (getValueFromChar(digit) >= 0) {
+                    continue;
+                }
+            }
+        } catch (Exception e) {
+            // Error terjadi saat value di dalam valueToChar tidak ada (tidak memenuhi huruf UPPERCASE dan angka)
+            return false;
+        }
+
         // Mengambil string id tanpa checksum
         String withoutChecksum = idAnggota.substring(0, 11);
-        System.out.println("ID CEK: " + idAnggota + " | " + getChecksum(withoutChecksum));
+
+        // 3. Memasangkan apakah idAnggota sudah cocok dengan checksumnya dengan memanggil kembarannya
         if (idAnggota.equals(getChecksum(withoutChecksum))) {
+            // Saat sudah cocok maka kembalikan true
             return true;
         }
+
+        // Saat tidak memenuhi syarat maka kembalikan false
         return false;
     }
 
-    // Method buatan sendiri cek validitas input generateID
+    /*
+     * Method ini digunakan menjadi pengecekan input user dalam memasukkan data anggota
+     * Beberapa langkah yang ada dalam tahapan pengecekan ini adalah:
+     * 1. Pengecekan program studi sesuai dengan yang ada atau tidak
+     * 2. Pengecekan tahun angkatan yang valid yaitu 2000 <= angkatan <= 2021
+     * 3. Pengecekan panjang format tanggalLahir
+     * 4. Pengecekan format "/" sebagai pemisah dd/mm/yyyy
+     * 5. Pengecekan format tipe angka pada dd, mm, dan yyyy
+     * 6. Pengecekan rentang tanggal, bulan, tahun yang sah
+     * 
+     * Ketika 6 pengecekan di atas terpenuhi maka checkInputValidity() akan mengembalikan
+     * true yang berarti input oleh user adalah valid, tetapi jika ditemukan pengecekan
+     * yang tidak terpenuhi maka checkInputValidity() akan mengembalikan false
+     */
     public static boolean checkInputValidity(String programStudi, String angkatan, String tanggalLahir) {
-        // Cek validitas program studi
+        // 1. Cek validitas program studi sesuai dengan yang ada 
         if (!programStudi.equals("SIK") && !programStudi.equals("SSI")
             && !programStudi.equals("MIK") && !programStudi.equals("MTI")
             && !programStudi.equals("DIK")) {
             return false;
-        } 
-        System.out.println("LULUS CEK PRODI"); // HAPUS
+        }
 
-        // Cek validitas angkatan
+        // 2. Cek validitas tahun angkatan yang valid
         if (Integer.parseInt(angkatan) > 2021 || Integer.parseInt(angkatan) < 2000) {
             return false;
         }
-        System.out.println("LULUS CEK ANGKATAN"); // HAPUS
 
-        // Cek validitas format tanggal
-        // Cek panjang string tanggalLahir _ _ / _ _ / _ _ _ _
+        // 3. Cek panjang string tanggalLahir
         if (tanggalLahir.length() != 10) {
             return false;
         }
-        System.out.println("LULUS CEK PANJANG FORMAT LAHIR"); // HAPUS
 
-        // Cek pastikan index 2 dan index 5 adalah "/"
+        // 4. Cek pastikan index 2 dan index 5 adalah "/"
         if (tanggalLahir.charAt(2) != '/' || tanggalLahir.charAt(5) != '/') {
             return false;
         }
-        System.out.println("LULUS CEK FORMAT (/)"); // HAPUS
 
-        // Cek selain "/" merupakan integer dengan catch error parseInt, 
-        // jika error maka tidak bisa diparseInt -> tidak valid
+        // 5. Cek selain "/" merupakan integer dengan catch error parseInt, 
         try {
+            // Mengubah format penanggalan String -> Integer
             int tanggal = Integer.parseInt(tanggalLahir.substring(0,2));
             int bulan = Integer.parseInt(tanggalLahir.substring(3,5));
             int tahun = Integer.parseInt(tanggalLahir.substring(6,10));
-            System.out.println("LULUS CEK ANGKA PADA FORMAT LAHIR"); // HAPUS
 
-            // Cek penanggalan sesuai 1 <= tanggal <= 31, 1 <= bulan <= 12, tahun <= 2022
+            // 6. Cek penanggalan sesuai 1 <= tanggal <= 31, 1 <= bulan <= 12, tahun <= 2022
             if (tanggal < 1 || tanggal > 31 || bulan < 1 || bulan > 12 || tahun > 2022) {
                 return false;
             }
-            System.out.println("LULUS CEK KALENDAR"); // HAPUS
         } catch (Exception e) {
+            // Jika error maka tidak bisa diparseInt -> tidak valid
             return false;
         }
 
-        // Ketika semua valid
+        // Ketika semua syarat terpenuhi -> valid
         return true;
     }
 
-    // Method buatan sendiri mencari checksum
+    /*
+     * Method ini digunakan untuk mengubah bentuk ID Anggota tanpa checksum
+     * menjadi ID Anggota yang sudah dilengkapi dengan checksum, penerapan
+     * method ini ada saat:
+     * 1. Membuat ID Anggota setelah didapati data anggota
+     * 2. Memvalidasi kebenaran format ID Anggota 
+     * 
+     * Method dijalankan dengan perulangan i menaik digunakan untuk mengambil 
+     * digit ID, kemudian dikalikan counter menurun dari:
+     * 11 -> 1 untuk checksum "C"
+     * 12 -> 1 untuk checksum "K" 
+     * 
+     * Total dari hasil penjumlahan dimodulo 36 untuk getCharFromValue() dari 
+     * hasil modulonya sehingga bisa ditambahkan ke ID Anggota
+     */
     public static String getChecksum(String idMahasiswa) {
         // Memulai generate checksum "C"
+        // Inisiasi counter dan total
         int counter = 11;  
         int total = 0;
+        // Mendapati hasil jumlah dari perkalian counter * getValueFromChar(digit)
         for (int i = 0; i < idMahasiswa.length(); i++) {
             char digit = idMahasiswa.charAt(i);
-            total += counter * findIndex(digit);
+            total += counter * getValueFromChar(digit);
             counter--;
         }      
-        idMahasiswa += valueToChar[total % 36]; // add checksum "C"
+        // Menambahkan checksum "C"
+        idMahasiswa += getCharFromValue(total % 36); // add checksum "C"
 
         // Memulai generate checksum "K"
+        // Inisiasi counter dan total
         counter = 12;
         total = 0;
+        // Mendapati hasil jumlah dari perkalian counter * getValueFromChar(digit)
         for (int i = 0; i < idMahasiswa.length(); i++) {
             char digit = idMahasiswa.charAt(i);
-            total += counter * findIndex(digit);
+            total += counter * getValueFromChar(digit);
             counter--;
         }
-        idMahasiswa += valueToChar[total % 36]; // add checksum "K"
+        // Menambahkan checksum "K"
+        idMahasiswa += getCharFromValue(total % 36); // add checksum "K"
+
+        // Mengembalikan idMahasiswa yang sudah berisi checksum di 2 digit terakhir
         return idMahasiswa;
     }
     
-    // Method buatan sendiri cari index dari char dalam valueToChar
-    public static int findIndex(char c) {
-        for (int i = 0; i < valueToChar.length; i++) {
-            if (valueToChar[i] == c) {
-                return i;
-            }
-        }
-        return -1; // ketika tidak ada
-    }
 }
