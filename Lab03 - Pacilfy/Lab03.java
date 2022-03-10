@@ -115,6 +115,23 @@ public class Lab03 {
 
     private static void deleteMusic() {
         //TODO:
+        int len = playlist.length;
+        // inisiasi array baru simpan sementara
+        String[][] newPlaylist = new String[len-1][4]; // inisiate
+        int count = 0;
+        for (int i = 0; i < playlist.length; i++) {
+            System.out.printf("\nSEK CEK DULU %s | %s\n", playlist[i][0], playlist[pointer][0]);
+            if (playlist[i][0].equals(playlist[pointer][0])) {
+                continue;
+            } else {
+                newPlaylist[count] = playlist[i];
+                count++;
+            }
+        }
+        // kembalikan playlist menjadi array sementara yang sudah dihilangkan elemennya
+        playlist = Arrays.copyOf(newPlaylist, len-1);
+        
+        // clear
     }
 
     private static void detailsMusic() {
