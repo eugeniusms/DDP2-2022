@@ -3,7 +3,6 @@ import java.util.Arrays;
 
 public class Lab03 {
     static int pointer = 0;
-    static int countLast = 0;
     static String[][] playlist = new String[1][4];
     static Scanner in = new Scanner(System.in);
     static int jumlahMusik = 0;
@@ -42,22 +41,15 @@ public class Lab03 {
             playlist[count] = laguBaru;
 
             count++;
-            
-            playlist = Arrays.copyOf(playlist, playlist.length + 1);
 
             System.out.print("Lanjut menambahkan lagu?\n[1] Lanjut\n[0] Berhenti\nPerintah : ");
             tambahLaguCommand = in.nextInt();
 
-            
+            if (tambahLaguCommand == 1) {
+                // menambah elemen array
+                playlist = Arrays.copyOf(playlist, playlist.length + 1);
+            }
         }
-
-        // check
-        // for (int i = 0; i < 2; i++) {
-        //     System.out.println(playlist[i][0]);
-        //     System.out.println(playlist[i][1]);
-        //     System.out.println(playlist[i][2]);
-        //     System.out.println(playlist[i][3]);
-        // }
 
         // currenty playing index [0] first
 
@@ -79,6 +71,7 @@ public class Lab03 {
 
         String command = "1";
         while (true){
+            checkIsiLagu();
             display();
             System.out.print("Command (0 untuk exit) : ");
             command = in.next();
@@ -111,11 +104,9 @@ public class Lab03 {
 
     private static void nextMusic() {
         //TODO:
-        // cek index setelahnya kosong tidak, jika iya kembalikan ke depan
-        if (playlist[pointer + 1][0] == null) {
+        // cek index setelahnya apakah sama dengan panjang playlist jika iya kembalikan ke depan
+        if (pointer + 1 == playlist.length) {
             pointer = 0;
-        } else if (playlist[pointer + 1][0] == "deletedMusic") { // saat deleted music maka setel setelahnya
-            pointer += 2;
         } else {
             pointer++;
         }
@@ -124,21 +115,31 @@ public class Lab03 {
 
     private static void deleteMusic() {
         //TODO:
-        playlist[pointer][0] = "deletedMusic"; // set name of music deleted 
     }
 
     private static void detailsMusic() {
         //TODO:
+        System.out.print("Judul yang ingin dicari: ");
+        String judulLagu = in.next();
 
+        String[] laguDipilih = getMusic(judulLagu, playlist);
+        if (laguDipilih[0] == "NotFound") {
+            System.out.println("Lagu tidak ditemukan");
+        } else {
+            System.out.println("Data lagu:");
+            System.out.printf("Judul : %s\n", laguDipilih[0]);
+            System.out.printf("Artist : %s\n", laguDipilih[1]);
+            System.out.printf("Album : %s\n", laguDipilih[2]);
+            System.out.printf("Tahun : %s\n", laguDipilih[3]);
+        }
+        // clear
     }
 
     private static void prevMusic() {
         //TODO:
         // cek indexnya 0 (awal) bukan? jika iya maka kembalikan ke belakang
         if (pointer == 0) {
-            // search end exist non-null
-            searchLastExistPointer();
-            pointer = countLast;
+            pointer = playlist.length - 1;
         } else {
             pointer--;
         }
@@ -147,7 +148,27 @@ public class Lab03 {
 
     private static void addMusic() {
         //TODO:
+        String[] laguBaru = new String[4];
+        System.out.println("Silahkan masukkan lagu Anda");
 
+        System.out.print("Judul : ");
+        String judulLagu = in.next();
+        System.out.print("Artist : ");
+        String artistLagu = in.next();
+        System.out.print("Album : ");
+        String albumLagu = in.next();
+        System.out.print("Tahun : ");
+        String tahunLagu = in.next();
+        
+        laguBaru[0] = judulLagu;
+        laguBaru[1] = artistLagu;
+        laguBaru[2] = albumLagu;
+        laguBaru[3] = tahunLagu;
+
+        playlist = Arrays.copyOf(playlist, playlist.length + 1);
+        playlist[playlist.length - 1] = laguBaru;
+
+        // clear
     }
 
 
@@ -183,15 +204,27 @@ public class Lab03 {
         System.out.println(command);
     }
 
-    // ketika pointernya null hasilnya maka count berhenti *linear search untuk mendapati elemen exist terakhir
-    private static void searchLastExistPointer() {
-        countLast = 0;
-        while (playlist[countLast][0] != null) {
-            countLast++;
+    private static String[] getMusic(String judul, String[][] playlist) {
+        String[] lagu = new String[4];
+        for (int i = 0; i < playlist.length; i++) {
+            // ketika didapati sama
+            if (playlist[i][0].toLowerCase().equals(judul.toLowerCase())) { // insensitive case
+                lagu = playlist[i];
+                return lagu;
+            }
         }
-        countLast--;
-        // clear
+        // Ketika lagu tidak ditemukan
+        lagu[0] = "NotFound";
+        return lagu;
     }
-    
+
+    // hanya untuk ngecek
+    private static void checkIsiLagu() {
+        System.out.println("----------------- CEK -----------------");
+        for (int i = 0; i < playlist.length; i++) {
+            System.out.println(Arrays.toString(playlist[i]));
+        }
+        System.out.println("---------------------------------------");
+    }
 }
 
