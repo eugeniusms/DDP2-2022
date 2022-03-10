@@ -116,6 +116,7 @@ public class Lab03 {
     private static void deleteMusic() {
         //TODO:
         int len = playlist.length;
+
         // inisiasi array baru simpan sementara
         String[][] newPlaylist = new String[len-1][4]; // inisiate
         int count = 0;
@@ -130,7 +131,17 @@ public class Lab03 {
         }
         // kembalikan playlist menjadi array sementara yang sudah dihilangkan elemennya
         playlist = Arrays.copyOf(newPlaylist, len-1);
-        
+
+        // saat pointer berada di paling belakang jadi lompat ke depan
+        if (pointer == len - 1) {
+            pointer = 0;
+        }
+
+        // saat lagu 0 = {}
+        if (playlist.length == 0) {
+            System.out.println("Tidak Ada Lagu di dalam Playlist");
+        }
+
         // clear
     }
 
@@ -191,34 +202,40 @@ public class Lab03 {
 
     private static void display() {
         System.out.println();
-        System.out.println("Currently Playing");
+        
+        // TAMBAHAN : SAAT INDEX OUT OF BOUND LAGU 0
+        if (playlist.length == 0) {
+            System.out.println("Tidak ada lagu di dalam playlist");
+        } else { // saat ada lagu di dalam
+            System.out.println("Currently Playing");
 
-        String displayedMusic = " " + playlist[pointer][1] + " - " + playlist[pointer][0] + " ";
-        String command = "|[1] prev |[2] add music |[3] details |[4] delete music |[5] next|";
+            String displayedMusic = " " + playlist[pointer][1] + " - " + playlist[pointer][0] + " ";
+            String command = "|[1] prev |[2] add music |[3] details |[4] delete music |[5] next|";
 
-        if (displayedMusic.length() < command.length()){
-            int width = 62;
-            String s = displayedMusic;
+            if (displayedMusic.length() < command.length()){
+                int width = 62;
+                String s = displayedMusic;
 
-            int padSize = width - s.length();
-            int padStart = s.length() + padSize / 2;
+                int padSize = width - s.length();
+                int padStart = s.length() + padSize / 2;
 
-            s = String.format("%" + padStart + "s", s);
-            s = String.format("%-" + width  + "s", s);
+                s = String.format("%" + padStart + "s", s);
+                s = String.format("%-" + width  + "s", s);
 
 
-            System.out.println(new String(new char[66]).replace("\0", "="));
-            System.out.println("= "+ s +" =");
-            System.out.println(new String(new char[66]).replace("\0", "="));
+                System.out.println(new String(new char[66]).replace("\0", "="));
+                System.out.println("= "+ s +" =");
+                System.out.println(new String(new char[66]).replace("\0", "="));
+                System.out.println(command);
+
+                return;
+            }
+
+            System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
+            System.out.println("=" + displayedMusic + "=");
+            System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
             System.out.println(command);
-
-            return;
         }
-
-        System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
-        System.out.println("=" + displayedMusic + "=");
-        System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
-        System.out.println(command);
     }
 
     private static String[] getMusic(String judul, String[][] playlist) {
