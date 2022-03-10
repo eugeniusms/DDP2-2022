@@ -27,21 +27,21 @@ public class Lab03 {
         // Inisialisasi playlist minimal 1 lagu dimasukkan ke dalamnya
 
         // Mengambil input lagu yang dimasukkan oleh user
-        int tambahLaguCommand = 1;
+        String tambahLaguCommand = "1";
         int count = 0;
-        while (tambahLaguCommand == 1) {
+        while (tambahLaguCommand.equals("1")) {
             // Inisiasi array sementara untuk menyimpan lagu yang ditambahkan
             String[] laguBaru = new String[4];
 
             // Mengambil input user ke dalam variabel sesuai penamaan
             System.out.print("Judul : ");
-            String judulLagu = in.next();
+            String judulLagu = in.nextLine();
             System.out.print("Artist: ");
-            String artistLagu = in.next();
+            String artistLagu = in.nextLine();
             System.out.print("Album : ");
-            String albumLagu = in.next();
+            String albumLagu = in.nextLine();
             System.out.print("Tahun : ");
-            String tahunLagu = in.next();
+            String tahunLagu = in.nextLine();
             
             // Memasukkan setiap nilai variabel ke dalam array sementara
             laguBaru[0] = judulLagu;
@@ -55,10 +55,10 @@ public class Lab03 {
 
             // Mengambil command untuk menambahkan lagu atau tidak
             System.out.print("Lanjut menambahkan lagu?\n[1] Lanjut\n[0] Berhenti\nPerintah : ");
-            tambahLaguCommand = in.nextInt();
+            tambahLaguCommand = in.nextLine();
 
-            // Saat command = 1 maka lagu akan diambil lagi maka perpanjang array playlist
-            if (tambahLaguCommand == 1) {
+            // Saat command = "1" maka lagu akan diambil lagi maka perpanjang array playlist
+            if (tambahLaguCommand.equals("1")) {
                 // menambah elemen array
                 playlist = Arrays.copyOf(playlist, playlist.length + 1);
             }
@@ -90,7 +90,7 @@ public class Lab03 {
 
             // Mengambil input dari user untuk dicocokan sesuai command yang ada
             System.out.print("Command (0 untuk exit) : ");
-            command = in.next();
+            command = in.nextLine();
 
             /* Pencocokan command sama seperti deskripsi di di atas program
              * saat command = "0" maka program berhenti dan mencetak ucapan
@@ -168,7 +168,7 @@ public class Lab03 {
     private static void detailsMusic() {
         // Mengambil judul lagu yang akan dicari detailnya
         System.out.print("Judul yang ingin dicari: ");
-        String judulLagu = in.next();
+        String judulLagu = in.nextLine();
 
         // Mengambil komponen array dari lagu yang dipilih menggunakan getMusic()
         String[] laguDipilih = getMusic(judulLagu, playlist);
@@ -207,13 +207,13 @@ public class Lab03 {
         // Mengambil masukkan dari user mengenai komponen dari lagu baru
         System.out.println("Silahkan masukkan lagu Anda");
         System.out.print("Judul : ");
-        String judulLagu = in.next();
+        String judulLagu = in.nextLine();
         System.out.print("Artist : ");
-        String artistLagu = in.next();
+        String artistLagu = in.nextLine();
         System.out.print("Album : ");
-        String albumLagu = in.next();
+        String albumLagu = in.nextLine();
         System.out.print("Tahun : ");
-        String tahunLagu = in.next();
+        String tahunLagu = in.nextLine();
         
         // Memasukkan komponen yang didapat ke dalam array laguBaru
         laguBaru[0] = judulLagu;
