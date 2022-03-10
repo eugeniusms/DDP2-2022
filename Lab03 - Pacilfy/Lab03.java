@@ -84,7 +84,6 @@ public class Lab03 {
 
         // Program akan selalu mengambil input sampai memasukki command "0" -> break
         while (true){
-            checkIsiLagu();
             // Menampilkan display dari Pacilfy
             display();
 
@@ -140,27 +139,32 @@ public class Lab03 {
         // Mengambil panjang dari playlist saat ini
         int len = playlist.length;
 
-        // Menginisiasi array sementara untuk menyimpan musik yang masih ada (tidak terhapus)
-        String[][] newPlaylist = new String[len-1][4]; 
-        
-        // Memulai penyusunan array sementara, lagu pointer saat ini dilewati karena akan dihapus
-        int count = 0;
-        for (int i = 0; i < playlist.length; i++) {
-            if (playlist[i][0].equals(playlist[pointer][0])) {
-                continue;
-            } else {
-                // Mengisi array sementara dengan nilai playlist yang tidak terhapus
-                newPlaylist[count] = playlist[i];
-                count++;
+        // Jika panjang dari playlist sisa 1 saja (1 lagu), tidak boleh melakukan penghapusan lagu
+        if (len == 1) {
+            System.out.println("Minimal ada satu musik dalam sistem");
+        } else {
+            // Menginisiasi array sementara untuk menyimpan musik yang masih ada (tidak terhapus)
+            String[][] newPlaylist = new String[len-1][4]; 
+            
+            // Memulai penyusunan array sementara, lagu pointer saat ini dilewati karena akan dihapus
+            int count = 0;
+            for (int i = 0; i < playlist.length; i++) {
+                if (playlist[i][0].equals(playlist[pointer][0])) {
+                    continue;
+                } else {
+                    // Mengisi array sementara dengan nilai playlist yang tidak terhapus
+                    newPlaylist[count] = playlist[i];
+                    count++;
+                }
             }
-        }
 
-        // Mengembalikan array sementara ke dalam array utama yaitu playlist untuk digunakan kembali
-        playlist = Arrays.copyOf(newPlaylist, len-1);
+            // Mengembalikan array sementara ke dalam array utama yaitu playlist untuk digunakan kembali
+            playlist = Arrays.copyOf(newPlaylist, len-1);
 
-        // Mengecek jika pointer saat ini berada di ujung akhir playlist maka setel lagu paling depan
-        if (pointer == len - 1) {
-            pointer = 0;
+            // Mengecek jika pointer saat ini berada di ujung akhir playlist maka setel lagu paling depan
+            if (pointer == len - 1) {
+                pointer = 0;
+            }
         }
     }
 
@@ -208,7 +212,7 @@ public class Lab03 {
         System.out.println("Silahkan masukkan lagu Anda");
         System.out.print("Judul : ");
         String judulLagu = in.nextLine();
-        System.out.print("Artist : ");
+        System.out.print("Artist: ");
         String artistLagu = in.nextLine();
         System.out.print("Album : ");
         String albumLagu = in.nextLine();
@@ -230,45 +234,38 @@ public class Lab03 {
     // Method ini digunakan untuk menampilkan tampilan dari Pacilfy setiap pemutaran lagunya 
     private static void display() {
         System.out.println();
-        
-        // Saat panjang dari playlist nol maka tidak ada lagu di dalam playlist
-        if (playlist.length == 0) {
-            System.out.println("Tidak ada lagu di dalam playlist");
-        } else { 
-            // Selain itu maka ada lagu di dalam playlist untuk diputar oleh user
 
-            // Mencetak tampilan dari Pacilfy agar keren :D
-            System.out.println("Currently Playing");
+        // Mencetak tampilan dari Pacilfy agar keren :D
+        System.out.println("Currently Playing");
 
-            // Mencetak lagu dengan artis dan judul yang sedang didengarkan
-            String displayedMusic = " " + playlist[pointer][1] + " - " + playlist[pointer][0] + " ";
+        // Mencetak lagu dengan artis dan judul yang sedang didengarkan
+        String displayedMusic = " " + playlist[pointer][1] + " - " + playlist[pointer][0] + " ";
 
-            // Mencetak command untuk dibaca oleh user
-            String command = "|[1] prev |[2] add music |[3] details |[4] delete music |[5] next|";
+        // Mencetak command untuk dibaca oleh user
+        String command = "|[1] prev |[2] add music |[3] details |[4] delete music |[5] next|";
 
-            // Membuat tampilan box dari Pacilfy
-            if (displayedMusic.length() < command.length()){
-                int width = 62;
-                String s = displayedMusic;
+        // Membuat tampilan box dari Pacilfy
+        if (displayedMusic.length() < command.length()){
+            int width = 62;
+            String s = displayedMusic;
 
-                int padSize = width - s.length();
-                int padStart = s.length() + padSize / 2;
+            int padSize = width - s.length();
+            int padStart = s.length() + padSize / 2;
 
-                s = String.format("%" + padStart + "s", s);
-                s = String.format("%-" + width  + "s", s);
+            s = String.format("%" + padStart + "s", s);
+            s = String.format("%-" + width  + "s", s);
 
-                System.out.println(new String(new char[66]).replace("\0", "="));
-                System.out.println("= "+ s +" =");
-                System.out.println(new String(new char[66]).replace("\0", "="));
-                System.out.println(command);
-
-                return;
-            }
-            System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
-            System.out.println("=" + displayedMusic + "=");
-            System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
+            System.out.println(new String(new char[66]).replace("\0", "="));
+            System.out.println("= "+ s +" =");
+            System.out.println(new String(new char[66]).replace("\0", "="));
             System.out.println(command);
+
+            return;
         }
+        System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
+        System.out.println("=" + displayedMusic + "=");
+        System.out.println("=" + new String(new char[displayedMusic.length()]).replace("\0", "=") + "=");
+        System.out.println(command);
     }
 
     // Method ini digunakan untuk mengambil array dari musik yang ingin dicari
@@ -286,15 +283,6 @@ public class Lab03 {
         // Ketika lagu yang dicari tidak dapat ditemukan maka kembalikan lagu dengan lagu[0] = "NotFound"
         lagu[0] = "NotFound";
         return lagu;
-    }
-
-    // hanya untuk ngecek
-    private static void checkIsiLagu() {
-        System.out.println("----------------- CEK -----------------");
-        for (int i = 0; i < playlist.length; i++) {
-            System.out.println(Arrays.toString(playlist[i]));
-        }
-        System.out.println("---------------------------------------");
     }
 }
 
