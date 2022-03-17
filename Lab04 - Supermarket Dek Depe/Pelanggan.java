@@ -19,17 +19,26 @@ public class Pelanggan {
     
     // TODO: lengkapi method di bawah ini (CLEAR) * KURANG CEK SUDAH ADA BARANG SAMA BELUM
     String addBarang(Barang barang, int banyakBarang){
+        // Inisiasi berat barang yang dipilih
+        int beratBarangDipilih = barang.getBeratBarang();
+
         // Saat stock tidak mencukupi
         if (barang.cekStock(banyakBarang) == false) {
             return ("Stock " + barang.getNama() + " kurang\n");
         } else if (this.kapasitasKeranjang < barang.getBeratBarang()*banyakBarang) {
             // Saat berat barang melebihi kapasitas keranjang
             // Cek barang yang dapat ditambahkan 
-            int dapatDitambahkan = (int) Math.floor(this.kapasitasKeranjang/barang.getBeratBarang()*banyakBarang);
+            int dapatDitambahkan = 1;
+            while ((dapatDitambahkan * beratBarangDipilih) < this.kapasitasKeranjang) {
+                dapatDitambahkan++;
+            }
+            dapatDitambahkan--;
 
             // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
             // KURANGI UANG PELANGGAN
             // KURANGI KAPASITAS KERANJANG YG ADA
+            this.kapasitasKeranjang -= dapatDitambahkan*beratBarangDipilih;
+            // KURANGI STOCK BARANG YANG ADA
 
             // Membuat objek baru dalam array
             Order orderBaru = new Order(barang, dapatDitambahkan);
@@ -47,9 +56,12 @@ public class Pelanggan {
             // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
             // KURANGI UANG PELANGGAN
             // KURANGI KAPASITAS KERANJANG YG ADA
+            this.kapasitasKeranjang -= banyakBarang*beratBarangDipilih;
+            // KURANGI STOK BARANG YANG ADA
 
             // Membuat objek baru dalam array
             Order orderBaru = new Order(barang, banyakBarang);
+
             // Memasukkan barang ke keranjang
             // Tambahkan panjang array
             this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
