@@ -63,6 +63,9 @@ public class Kasir {
             int uang = in.nextInt();
 
             //TODO: Construct Pelanggan baru
+            // Menambah pelanggan baru ke kumpulan object pelanggan dan setel 
+            // default dari kapasitas adalah 5000
+            pelanggan[j] = new Pelanggan(namaPelanggan, uang, 5000);
         }
         
         int P = in.nextInt();
