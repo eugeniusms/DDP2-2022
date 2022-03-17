@@ -21,7 +21,7 @@ public class Pelanggan {
     String addBarang(Barang barang, int banyakBarang){
         // Saat stock tidak mencukupi
         if (barang.cekStock(banyakBarang) == false) {
-            System.out.println("Stock " + barang.getNama() + " kurang");
+            return ("Stock " + barang.getNama() + " kurang\n");
         } else if (this.kapasitasKeranjang < barang.getBeratBarang()*banyakBarang) {
             // Saat berat barang melebihi kapasitas keranjang
             // Cek barang yang dapat ditambahkan 
@@ -39,8 +39,8 @@ public class Pelanggan {
             // Memasukkan barang berbentuk object ke indeks terakhir
             this.keranjang[this.keranjang.length - 1] = orderBaru;
 
-            System.out.println("Maaf " + banyakBarang + " " + barang.getNama() + " terlalu berat, "
-                               + "tetapi " + dapatDitambahkan + " " + barang.getNama() + " berhasil ditambahkan");
+            return ("Maaf " + banyakBarang + " " + barang.getNama() + " terlalu berat, "
+                               + "tetapi " + dapatDitambahkan + " " + barang.getNama() + " berhasil ditambahkan\n");
         } else {
             // Saat barang dapat ditambahkan langsung karena tidak melebihi kapasitas
             // Cek barang yang dapat ditambahkan 
@@ -56,9 +56,8 @@ public class Pelanggan {
             // Memasukkan barang berbentuk object ke indeks terakhir
             this.keranjang[this.keranjang.length - 1] = orderBaru;
 
-            System.out.println(this.getNama() + " berhasil menambahkan " + banyakBarang + " " + barang.getNama());
+            return (this.getNama() + " berhasil menambahkan " + banyakBarang + " " + barang.getNama() + "\n");
         }
-        return "";
     }
     
     // TODO: lengkapi method di bawah ini (CLEAR) ? CEK
