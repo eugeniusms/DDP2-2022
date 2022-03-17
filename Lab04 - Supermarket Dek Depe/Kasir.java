@@ -32,7 +32,25 @@ public class Kasir {
 
     // TODO lengkapi method di bawah ini
     static void kasir(Pelanggan K){
-        
+        // Menampilkan tampilan total belanja
+
+        // Jika tidak ada barang keranjang len = 0 kembalikan tidak ada
+        if (K.getKeranjang().length == 0) {
+            out.println("Maaf tidak ada barang di keranjang " + K.getNama());
+        } else {
+            // Saat ada barang di keranjang
+            // Cetak tampilan printout
+            out.println("Pembelian " + K.getNama() + " berhasil:");
+            for (Order ord: K.getKeranjang()) {
+                out.println("* " + ord.getBarang().getNama() + " " + ord.getBanyakBarang() + " = " 
+                        + ord.getBarang().getHarga() * ord.getBanyakBarang());
+            }
+            out.println("* Total Belanjaan = " + K.totalHargaBarang());
+            out.println("* Sisa Uang = " + K.cekUang());
+
+            // Reset Isi keranjang Udin
+            K.setKeranjangToZero();
+        }
     }
     
     public static void main(String[] args) {
@@ -49,12 +67,6 @@ public class Kasir {
             // Menambahkan barang ke dalam array
             barang[i] = new Barang(namaBarang, hargaBarang, beratBarang, stock);
         }
-        
-        // CHECK /////////////////////////////////////////
-        for (int i = 0; i < N; i++) {
-            System.out.println(barang[i].getNama());
-        }
-         // CHECK /////////////////////////////////////////
 
         M = in.nextInt();
         pelanggan = new Pelanggan[M];

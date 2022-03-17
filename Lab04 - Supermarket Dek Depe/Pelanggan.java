@@ -21,6 +21,7 @@ public class Pelanggan {
     String addBarang(Barang barang, int banyakBarang){
         // Inisiasi berat barang yang dipilih
         int beratBarangDipilih = barang.getBeratBarang();
+        int hargaBarangDipilih = barang.getHarga();
 
         // Saat stock tidak mencukupi
         if (barang.cekStock(banyakBarang) == false) {
@@ -36,6 +37,7 @@ public class Pelanggan {
 
             // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
             // KURANGI UANG PELANGGAN
+            this.uang -= banyakBarang*hargaBarangDipilih;
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= dapatDitambahkan*beratBarangDipilih;
             // KURANGI STOCK BARANG YANG ADA
@@ -58,6 +60,7 @@ public class Pelanggan {
             // Cek barang yang dapat ditambahkan 
             // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
             // KURANGI UANG PELANGGAN
+            this.uang -= banyakBarang*hargaBarangDipilih;
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= banyakBarang*beratBarangDipilih;
             // KURANGI STOCK BARANG YANG ADA
@@ -112,6 +115,12 @@ public class Pelanggan {
 
     public Order[] getKeranjang() {
         return keranjang;
+    }
+
+    // Reset Keranjang
+    public Order[] setKeranjangToZero() {
+        this.keranjang = new Order[]{};
+        return this.keranjang;
     }
 
 }
