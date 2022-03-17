@@ -37,6 +37,7 @@ public class Kasir {
     
     public static void main(String[] args) {
         N = in.nextInt();
+        // Array untuk menyimpan semua barang pelanggan
         barang = new Barang[N];
         for (int i = 0; i < N; i++) {
             String namaBarang = in.next();
@@ -44,9 +45,17 @@ public class Kasir {
             int beratBarang = in.nextInt();
             int stock = in.nextInt();
             
-            //TODO: Construct Barang baru
+            //TODO: Construct Barang baru (CLEAR)
+            // Menambahkan barang ke dalam array
+            barang[i] = new Barang(namaBarang, hargaBarang, beratBarang, stock);
         }
         
+        // CHECK /////////////////////////////////////////
+        for (int i = 0; i < N; i++) {
+            System.out.println(barang[i].getNama());
+        }
+         // CHECK /////////////////////////////////////////
+
         M = in.nextInt();
         pelanggan = new Pelanggan[M];
         for (int j = 0; j < M; j++) {
