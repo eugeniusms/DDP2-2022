@@ -39,6 +39,9 @@ public class Pelanggan {
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= dapatDitambahkan*beratBarangDipilih;
             // KURANGI STOCK BARANG YANG ADA
+            int stokBarang = barang.getStock();
+            barang.setStock(stokBarang - banyakBarang);
+            // * TAMBAHKAN BATAS MAKSIMAL DAPAT DIBELI
 
             // Membuat objek baru dalam array
             Order orderBaru = new Order(barang, dapatDitambahkan);
@@ -57,7 +60,9 @@ public class Pelanggan {
             // KURANGI UANG PELANGGAN
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= banyakBarang*beratBarangDipilih;
-            // KURANGI STOK BARANG YANG ADA
+            // KURANGI STOCK BARANG YANG ADA
+            int stokBarang = barang.getStock();
+            barang.setStock(stokBarang - banyakBarang);
 
             // Membuat objek baru dalam array
             Order orderBaru = new Order(barang, banyakBarang);
