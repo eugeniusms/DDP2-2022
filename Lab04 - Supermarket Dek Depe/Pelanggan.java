@@ -1,14 +1,15 @@
 import java.util.Arrays;
 
 public class Pelanggan {
+    // Merupakan kelas untuk mengatur hal-hal yang berkaitan dengan pelanggan
   
-    //TODO: Tambahkan modifier (CLEAR)
+    // Inisiasi Data Field
     private String nama;
     private int uang;
     private Order[] keranjang;
     private int kapasitasKeranjang = 5000;
 
-    //TODO: Buat Constructor (CLEAR) *KERANJANG? AMAN?
+    // Membentuk constructor pelanggan
     public Pelanggan(String nama, int uang, int kapasitas) {
         this.nama = nama;
         this.uang = uang;
@@ -17,7 +18,7 @@ public class Pelanggan {
         this.keranjang = new Order[]{};
     }
     
-    // TODO: lengkapi method di bawah ini (CLEAR) * KURANG CEK SUDAH ADA BARANG SAMA BELUM
+    // Method object untuk menambahkan barang dibeli ke dalam keranjang pelanggan
     public String addBarang(Barang barang, int banyakBarang){
         // Inisiasi berat barang yang dipilih
         int beratBarangDipilih = barang.getBeratBarang();
@@ -28,7 +29,8 @@ public class Pelanggan {
             return ("Stock " + barang.getNama() + " kurang\n");
         } else if (this.kapasitasKeranjang < barang.getBeratBarang()*banyakBarang) {
             // Saat berat barang melebihi kapasitas keranjang
-            // Cek barang yang dapat ditambahkan 
+
+            // Cek barang yang dapat ditambahkan semaksimal mungkin
             int dapatDitambahkan = 1;
             while ((dapatDitambahkan * beratBarangDipilih) < this.kapasitasKeranjang) {
                 dapatDitambahkan++;
@@ -36,25 +38,25 @@ public class Pelanggan {
             dapatDitambahkan--;
             
 
-            // KURANGI KAPASITAS KERANJANG YG ADA
+            // Kurangi kapasitas keranjang pelanggan
             this.kapasitasKeranjang -= dapatDitambahkan*beratBarangDipilih;
-            // KURANGI STOCK BARANG YANG ADA
+
+            // Kurangi stok barang yang ada
             int stokBarang = barang.getStock();
             barang.setStock(stokBarang - banyakBarang);
-            // * TAMBAHKAN BATAS MAKSIMAL DAPAT DIBELI
 
-            // DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM 
-            // JIKA SUDAH ADA TAMBAHKAN SAJA
+            // Mengecek apakah sudah ada barang di dalam keranjang belum
             boolean barangSudahAda = false;
             for (Order ord: this.keranjang) {
                 if (ord.getBarang().getNama().equals(barang.getNama())) {
+                    // Jika sudah ada barang maka tambahkan saja barangnya
                     barangSudahAda = true;
                     int banyakBarangSebelum = ord.getBanyakBarang();
                     ord.setBanyakBarang(banyakBarangSebelum + dapatDitambahkan);
                 }
             }
+            // Jika belum ada maka inisiasikan object baru di dalam order
             if (barangSudahAda == false) {
-                // JIKA BELUM INISIASIKAN BARU
                 // Membuat objek baru dalam array
                 Order orderBaru = new Order(barang, dapatDitambahkan);
                 // Memasukkan barang ke keranjang
@@ -64,30 +66,30 @@ public class Pelanggan {
                 this.keranjang[this.keranjang.length - 1] = orderBaru;
             }
 
+            // Mengembalikan nilai barang yang tidak bertambah penuh
             return ("Maaf " + banyakBarang + " " + barang.getNama() + " terlalu berat, "
                                + "tetapi " + dapatDitambahkan + " " + barang.getNama() + " berhasil ditambahkan\n");
         } else {
             // Saat barang dapat ditambahkan langsung karena tidak melebihi kapasitas
-            // Cek barang yang dapat ditambahkan 
 
-            // KURANGI KAPASITAS KERANJANG YG ADA
+            // Kurangi kapasitas keranjang pelanggan
             this.kapasitasKeranjang -= banyakBarang*beratBarangDipilih;
-            // KURANGI STOCK BARANG YANG ADA
+            // Kurangi stok barang yang ada
             int stokBarang = barang.getStock();
             barang.setStock(stokBarang - banyakBarang);
 
-            // DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM 
-            // JIKA SUDAH ADA TAMBAHKAN SAJA
+            // Mengecek apakah barang sudah ada di dalam keranjang pelanggan atau belum
             boolean barangSudahAda = false;
             for (Order ord: this.keranjang) {
                 if (ord.getBarang().getNama().equals(barang.getNama())) {
+                    // Jika sudah ada maka tambahkan saja barang sesuai order
                     barangSudahAda = true;
                     int banyakBarangSebelum = ord.getBanyakBarang();
                     ord.setBanyakBarang(banyakBarangSebelum + banyakBarang);
                 }
             }
+            // Jika belum ada inisiasikan object order baru ke dalam keranjang
             if (barangSudahAda == false) {
-                // JIKA BELUM INISIASIKAN BARU
                 // Membuat objek baru dalam array
                 Order orderBaru = new Order(barang, banyakBarang);
                 // Memasukkan barang ke keranjang
@@ -97,48 +99,55 @@ public class Pelanggan {
                 this.keranjang[this.keranjang.length - 1] = orderBaru;
             }
 
+            // Mengembalikan berhasil menambahkan barang
             return (this.getNama() + " berhasil menambahkan " + banyakBarang + " " + barang.getNama() + "\n");
         }
     }
     
-    // TODO: lengkapi method di bawah ini (CLEAR) ? CEK
+    // Method ini digunakan untuk mendapatkan total harga barang
     public int totalHargaBarang(){     
         int totalHarga = 0; 
-        // Mengambil total harga barang dan mengembalikan total harganya
+        // Mengambil total harga barang satu per satu dan mengembalikan total harganya
         for (Order ord: this.keranjang) {
+            // Harga 1 barang * Jumlah barang
             totalHarga += ord.getBarang().getHarga() * (ord.getBanyakBarang());
         }
         return totalHarga;
     }
     
-    // TODO: lengkapi method di bawah ini (CLEAR)
+    // Method untuk mengembalikan uang yang ada di pelanggan
     public String cekUang(){
         // Mengembalikan uang pelanggan
         return Integer.toString(this.uang);
     }
 
-    // Setter and Getter dan lengkapi modifier (CLEAR)
+    // Setter and Getter untuk class ini
+    // Mengambil nama pelanggan
     public String getNama() {
         return this.nama;
     }
 
+    // Mengeset nama pelanggan
     public void setNama(String nama) {
         this.nama = nama;
     }
 
+    // Mengambil uang yang ada di pelanggan
     public int getUang() {
         return this.uang;
     }
 
+    // Mengeset uang pelanggan
     public void setUang(int uang) {
         this.uang = uang;
     }
 
+    // Mengembalikan keranjang pelanggan
     public Order[] getKeranjang() {
         return keranjang;
     }
 
-    // Reset Keranjang
+    // Reset keranjang pelanggan ke kosong
     public Order[] setKeranjangToZero() {
         this.keranjang = new Order[]{};
         return this.keranjang;

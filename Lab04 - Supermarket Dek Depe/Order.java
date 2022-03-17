@@ -1,25 +1,32 @@
 public class Order {
+    // Merupakan kelas yang mengatur order barang pelanggan
+    // Inisiasi data field order
     private Barang barang;
     private int banyakBarang;
 
+    // Constructor dari order
     public Order(Barang barang, int banyakBarang) {
         this.barang = barang;
         this.banyakBarang = banyakBarang;
     }
 
-    Barang getBarang() {
+    // Method untuk mendapatkan object barang
+    public Barang getBarang() {
         return barang;
     }
 
-    int getBanyakBarang(){
+    // Method untuk mengembalikan banyak barang dibeli
+    public int getBanyakBarang(){
         return banyakBarang;
     }
 
-    void setBarang(Barang barang) {
+    // Method untuk mengeset barang order
+    public void setBarang(Barang barang) {
         this.barang = barang;
     }
 
-    void setBanyakBarang(int banyakBarang){
+    // Method untuk mengeset banyak barang diorder
+    public void setBanyakBarang(int banyakBarang){
         this.banyakBarang = banyakBarang;
     }
 }

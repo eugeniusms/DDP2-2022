@@ -1,12 +1,13 @@
 public class Barang {
+    // Merupakan kelas untuk menyimpan data mengenai barang di dalam toko
   
-    //TODO: Tambahkan modifier (CLEAR)
+    // Inisiasi data field
     private String nama;
     private int harga;
     private int beratBarang;
     private int stock;
 
-    //TODO: Buat Constructor (CLEAR)
+    // Constructor untuk object barang
     public Barang(String nama, int harga, int beratBarang, int stock) {
         this.nama = nama;
         this.harga = harga;
@@ -14,8 +15,8 @@ public class Barang {
         this.stock = stock;
     }
       
-    //TODO: Silakan cek stock (CLEAR)
-    boolean cekStock(int stock){
+    // Method untuk mengetahui apakah stok barang mencukupi atau tidak
+    public boolean cekStock(int stock){
         // Saat stock kurang maka barang tidak akan bisa diambil
         if (this.stock < stock) {
             return false;
@@ -23,23 +24,28 @@ public class Barang {
         return true;    
     }
     
-    String getNama() {
+    // Getter untuk mendapat nama barang
+    public String getNama() {
         return nama;
     }
     
-    int getStock(){
+    // Getter untuk mendapat jumlah stok
+    public int getStock(){
         return stock;
     }
   
-    void setStock(int kuantitas){
+    // Setter untuk mengeset stock
+    public void setStock(int kuantitas){
         this.stock = kuantitas;
     }
     
-    int getBeratBarang(){
+    // Getter untuk mendapat berat barang
+    public int getBeratBarang(){
         return beratBarang;
     }
 
-    int getHarga(){
+    // Getter untuk mendapat harga barang
+    public int getHarga(){
         return harga;
     }
     
