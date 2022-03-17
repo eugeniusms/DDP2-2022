@@ -1,49 +1,100 @@
+import java.util.Arrays;
+
 public class Pelanggan {
   
-    //TODO: Tambahkan modifier
-    String nama;
-    int uang;
-    Order[] keranjang;
-    int kapasitasKeranjang = 5000;
+    //TODO: Tambahkan modifier (CLEAR)
+    private String nama;
+    private int uang;
+    private Order[] keranjang;
+    private int kapasitasKeranjang = 5000;
 
-    //TODO: Buat Constructor
+    //TODO: Buat Constructor (CLEAR) *KERANJANG? AMAN?
     public Pelanggan(String nama, int uang, int kapasitas) {
-
+        this.nama = nama;
+        this.uang = uang;
+        this.kapasitasKeranjang = kapasitas;
+        // Menginisiasikan isi order keranjang pengguna awal = kosong
+        this.keranjang = new Order[]{};
     }
     
-    // TODO: lengkapi method di bawah ini
+    // TODO: lengkapi method di bawah ini (CLEAR) * KURANG CEK SUDAH ADA BARANG SAMA BELUM
     String addBarang(Barang barang, int banyakBarang){
+        // Saat stock tidak mencukupi
+        if (barang.cekStock(banyakBarang) == false) {
+            System.out.println("Stock " + barang.getNama() + " kurang");
+        } else if (this.kapasitasKeranjang < barang.getBeratBarang()*banyakBarang) {
+            // Saat berat barang melebihi kapasitas keranjang
+            // Cek barang yang dapat ditambahkan 
+            int dapatDitambahkan = (int) Math.floor(this.kapasitasKeranjang/barang.getBeratBarang()*banyakBarang);
+
+            // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
+            // KURANGI UANG PELANGGAN
+            // KURANGI KAPASITAS KERANJANG YG ADA
+
+            // Membuat objek baru dalam array
+            Order orderBaru = new Order(barang, dapatDitambahkan);
+            // Memasukkan barang ke keranjang
+            // Tambahkan panjang array
+            this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
+            // Memasukkan barang berbentuk object ke indeks terakhir
+            this.keranjang[this.keranjang.length - 1] = orderBaru;
+
+            System.out.println("Maaf " + banyakBarang + " " + barang.getNama() + " terlalu berat, "
+                               + "tetapi " + dapatDitambahkan + " " + barang.getNama() + " berhasil ditambahkan");
+        } else {
+            // Saat barang dapat ditambahkan langsung karena tidak melebihi kapasitas
+            // Cek barang yang dapat ditambahkan 
+            // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
+            // KURANGI UANG PELANGGAN
+            // KURANGI KAPASITAS KERANJANG YG ADA
+
+            // Membuat objek baru dalam array
+            Order orderBaru = new Order(barang, banyakBarang);
+            // Memasukkan barang ke keranjang
+            // Tambahkan panjang array
+            this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
+            // Memasukkan barang berbentuk object ke indeks terakhir
+            this.keranjang[this.keranjang.length - 1] = orderBaru;
+
+            System.out.println(this.getNama() + " berhasil menambahkan " + banyakBarang + " " + barang.getNama());
+        }
         return "";
     }
     
-    // TODO: lengkapi method di bawah ini
-    int totalHargaBarang(){      
-        return 0;
+    // TODO: lengkapi method di bawah ini (CLEAR) ? CEK
+    int totalHargaBarang(){     
+        int totalHarga = 0; 
+        // Mengambil total harga barang dan mengembalikan total harganya
+        for (int i = 0; i < this.keranjang.length - 1; i++) {
+            totalHarga += this.keranjang[i].getBarang().getHarga();
+        }
+        return totalHarga;
     }
     
-    // TODO: lengkapi method di bawah ini
+    // TODO: lengkapi method di bawah ini (CLEAR)
     String cekUang(){
-        return "";
+        // Mengembalikan uang pelanggan
+        return Integer.toString(this.uang);
     }
 
-    // Setter and Getter dan lengkapi modifier
-    String getNama() {
+    // Setter and Getter dan lengkapi modifier (CLEAR)
+    public String getNama() {
         return this.nama;
     }
 
-    void setNama(String nama) {
+    public void setNama(String nama) {
         this.nama = nama;
     }
 
-    int getUang() {
+    public int getUang() {
         return this.uang;
     }
 
-    void setUang(int uang) {
+    public void setUang(int uang) {
         this.uang = uang;
     }
 
-    Order[] getKeranjang() {
+    public Order[] getKeranjang() {
         return keranjang;
     }
 
