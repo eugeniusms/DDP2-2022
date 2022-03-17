@@ -81,8 +81,8 @@ public class Pelanggan {
     int totalHargaBarang(){     
         int totalHarga = 0; 
         // Mengambil total harga barang dan mengembalikan total harganya
-        for (int i = 0; i < this.keranjang.length - 1; i++) {
-            totalHarga += this.keranjang[i].getBarang().getHarga();
+        for (Order ord: this.keranjang) {
+            totalHarga += ord.getBarang().getHarga() * (ord.getBanyakBarang());
         }
         return totalHarga;
     }
