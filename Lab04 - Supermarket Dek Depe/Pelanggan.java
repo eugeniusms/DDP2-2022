@@ -18,7 +18,7 @@ public class Pelanggan {
     }
     
     // TODO: lengkapi method di bawah ini (CLEAR) * KURANG CEK SUDAH ADA BARANG SAMA BELUM
-    String addBarang(Barang barang, int banyakBarang){
+    public String addBarang(Barang barang, int banyakBarang){
         // Inisiasi berat barang yang dipilih
         int beratBarangDipilih = barang.getBeratBarang();
         int hargaBarangDipilih = barang.getHarga();
@@ -34,9 +34,8 @@ public class Pelanggan {
                 dapatDitambahkan++;
             }
             dapatDitambahkan--;
+            
 
-            // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
- 
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= dapatDitambahkan*beratBarangDipilih;
             // KURANGI STOCK BARANG YANG ADA
@@ -44,20 +43,32 @@ public class Pelanggan {
             barang.setStock(stokBarang - banyakBarang);
             // * TAMBAHKAN BATAS MAKSIMAL DAPAT DIBELI
 
-            // Membuat objek baru dalam array
-            Order orderBaru = new Order(barang, dapatDitambahkan);
-            // Memasukkan barang ke keranjang
-            // Tambahkan panjang array
-            this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
-            // Memasukkan barang berbentuk object ke indeks terakhir
-            this.keranjang[this.keranjang.length - 1] = orderBaru;
+            // DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM 
+            // JIKA SUDAH ADA TAMBAHKAN SAJA
+            boolean barangSudahAda = false;
+            for (Order ord: this.keranjang) {
+                if (ord.getBarang().getNama().equals(barang.getNama())) {
+                    barangSudahAda = true;
+                    int banyakBarangSebelum = ord.getBanyakBarang();
+                    ord.setBanyakBarang(banyakBarangSebelum + dapatDitambahkan);
+                }
+            }
+            if (barangSudahAda == false) {
+                // JIKA BELUM INISIASIKAN BARU
+                // Membuat objek baru dalam array
+                Order orderBaru = new Order(barang, dapatDitambahkan);
+                // Memasukkan barang ke keranjang
+                // Tambahkan panjang array
+                this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
+                // Memasukkan barang berbentuk object ke indeks terakhir
+                this.keranjang[this.keranjang.length - 1] = orderBaru;
+            }
 
             return ("Maaf " + banyakBarang + " " + barang.getNama() + " terlalu berat, "
                                + "tetapi " + dapatDitambahkan + " " + barang.getNama() + " berhasil ditambahkan\n");
         } else {
             // Saat barang dapat ditambahkan langsung karena tidak melebihi kapasitas
             // Cek barang yang dapat ditambahkan 
-            // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
 
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= banyakBarang*beratBarangDipilih;
@@ -65,21 +76,33 @@ public class Pelanggan {
             int stokBarang = barang.getStock();
             barang.setStock(stokBarang - banyakBarang);
 
-            // Membuat objek baru dalam array
-            Order orderBaru = new Order(barang, banyakBarang);
-
-            // Memasukkan barang ke keranjang
-            // Tambahkan panjang array
-            this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
-            // Memasukkan barang berbentuk object ke indeks terakhir
-            this.keranjang[this.keranjang.length - 1] = orderBaru;
+            // DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM 
+            // JIKA SUDAH ADA TAMBAHKAN SAJA
+            boolean barangSudahAda = false;
+            for (Order ord: this.keranjang) {
+                if (ord.getBarang().getNama().equals(barang.getNama())) {
+                    barangSudahAda = true;
+                    int banyakBarangSebelum = ord.getBanyakBarang();
+                    ord.setBanyakBarang(banyakBarangSebelum + banyakBarang);
+                }
+            }
+            if (barangSudahAda == false) {
+                // JIKA BELUM INISIASIKAN BARU
+                // Membuat objek baru dalam array
+                Order orderBaru = new Order(barang, banyakBarang);
+                // Memasukkan barang ke keranjang
+                // Tambahkan panjang array
+                this.keranjang = Arrays.copyOf(this.keranjang, this.keranjang.length + 1);
+                // Memasukkan barang berbentuk object ke indeks terakhir
+                this.keranjang[this.keranjang.length - 1] = orderBaru;
+            }
 
             return (this.getNama() + " berhasil menambahkan " + banyakBarang + " " + barang.getNama() + "\n");
         }
     }
     
     // TODO: lengkapi method di bawah ini (CLEAR) ? CEK
-    int totalHargaBarang(){     
+    public int totalHargaBarang(){     
         int totalHarga = 0; 
         // Mengambil total harga barang dan mengembalikan total harganya
         for (Order ord: this.keranjang) {
@@ -89,7 +112,7 @@ public class Pelanggan {
     }
     
     // TODO: lengkapi method di bawah ini (CLEAR)
-    String cekUang(){
+    public String cekUang(){
         // Mengembalikan uang pelanggan
         return Integer.toString(this.uang);
     }
