@@ -38,18 +38,24 @@ public class Kasir {
         if (K.getKeranjang().length == 0) {
             out.println("Maaf tidak ada barang di keranjang " + K.getNama());
         } else {
-            // Saat ada barang di keranjang
+            // Saat ada barang di keranjang cek apakah uang sesuai 
+            // Saat uang mencukupi checkout
+            if (K.getUang() >= K.totalHargaBarang()) {
             // Cetak tampilan printout
-            out.println("Pembelian " + K.getNama() + " berhasil:");
-            for (Order ord: K.getKeranjang()) {
-                out.println("* " + ord.getBarang().getNama() + " " + ord.getBanyakBarang() + " = " 
-                        + ord.getBarang().getHarga() * ord.getBanyakBarang());
-            }
-            out.println("* Total Belanjaan = " + K.totalHargaBarang());
-            out.println("* Sisa Uang = " + K.cekUang());
+                out.println("Pembelian " + K.getNama() + " berhasil:");
+                for (Order ord: K.getKeranjang()) {
+                    out.println("* " + ord.getBarang().getNama() + " " + ord.getBanyakBarang() + " = " 
+                            + ord.getBarang().getHarga() * ord.getBanyakBarang());
+                }
+                out.println("* Total Belanjaan = " + K.totalHargaBarang());
+                out.println("* Sisa Uang = " + K.cekUang());
 
-            // Reset Isi keranjang Udin
-            K.setKeranjangToZero();
+                // Reset Isi keranjang Udin
+                K.setKeranjangToZero();
+            } else {
+                // Saat uang tidak mencukupi maaf tidak cukup uang
+                out.println("Maaf " + K.getNama() + " tidak memiliki cukup uang");
+            }
         }
     }
     
@@ -108,7 +114,7 @@ public class Kasir {
             if (command.equals("CEK_UANG")) {
                 String namaPelanggan = in.next();
                 Pelanggan plg = cariPelanggan(namaPelanggan);
-                out.print(plg.cekUang());
+                out.print("Uang " + plg.getNama() + " sekarang " + plg.cekUang());
             }
         }
         
