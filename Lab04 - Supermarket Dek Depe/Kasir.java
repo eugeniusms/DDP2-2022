@@ -41,7 +41,10 @@ public class Kasir {
             // Saat ada barang di keranjang cek apakah uang sesuai 
             // Saat uang mencukupi checkout
             if (K.getUang() >= K.totalHargaBarang()) {
-            // Cetak tampilan printout
+                // Kurangi Uang Udin
+                K.setUang(K.getUang() - K.totalHargaBarang());
+                
+                // Cetak tampilan printout
                 out.println("Pembelian " + K.getNama() + " berhasil:");
                 for (Order ord: K.getKeranjang()) {
                     out.println("* " + ord.getBarang().getNama() + " " + ord.getBanyakBarang() + " = " 
@@ -50,6 +53,7 @@ public class Kasir {
                 out.println("* Total Belanjaan = " + K.totalHargaBarang());
                 out.println("* Sisa Uang = " + K.cekUang());
 
+                
                 // Reset Isi keranjang Udin
                 K.setKeranjangToZero();
             } else {
@@ -114,7 +118,7 @@ public class Kasir {
             if (command.equals("CEK_UANG")) {
                 String namaPelanggan = in.next();
                 Pelanggan plg = cariPelanggan(namaPelanggan);
-                out.print("Uang " + plg.getNama() + " sekarang " + plg.cekUang());
+                out.println("Uang " + plg.getNama() + " sekarang " + plg.cekUang());
             }
         }
         

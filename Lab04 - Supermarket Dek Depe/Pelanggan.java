@@ -36,8 +36,7 @@ public class Pelanggan {
             dapatDitambahkan--;
 
             // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
-            // KURANGI UANG PELANGGAN
-            this.uang -= banyakBarang*hargaBarangDipilih;
+ 
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= dapatDitambahkan*beratBarangDipilih;
             // KURANGI STOCK BARANG YANG ADA
@@ -59,8 +58,7 @@ public class Pelanggan {
             // Saat barang dapat ditambahkan langsung karena tidak melebihi kapasitas
             // Cek barang yang dapat ditambahkan 
             // SEHARUSNYA DI SINI DI CEK APAKAH SUDAH ADA BARANG SAMA BELUM ------------------------------------------
-            // KURANGI UANG PELANGGAN
-            this.uang -= banyakBarang*hargaBarangDipilih;
+
             // KURANGI KAPASITAS KERANJANG YG ADA
             this.kapasitasKeranjang -= banyakBarang*beratBarangDipilih;
             // KURANGI STOCK BARANG YANG ADA
