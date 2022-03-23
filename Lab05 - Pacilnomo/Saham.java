@@ -22,9 +22,9 @@ public class Saham extends Aset{
 
 		// TODO modifikasi harga sesuai dengan pertumbuhan sekarang dan tambahkan dividen ke earnings
 		// Set harga baru karena kenaikan tahunan
-		this.setHarga( this.getHarga() * (pertumbuhan+1) );
+		this.setHarga( this.getHarga() * (pertumbuhan + 1) );
 		// Tambahkan Dividen
-		return this.dividen * (this.getHarga() * (1 + this.pertumbuhan)) * this.getJumlah();
+		return this.dividen * this.getHarga() * this.getJumlah();
 	}
 
 	// Linear congruential generator for subsequent growth
