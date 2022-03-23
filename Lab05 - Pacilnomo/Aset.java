@@ -13,6 +13,10 @@ public class Aset {
 		this.harga = harga;
 	}
 	
+	public double kirimBunga() {
+		return 0;
+	} 
+
 	// Increment tahun
 	public void nextYear() {
 		tahun += 1;

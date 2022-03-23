@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import Obligasi;
-
 public class Pacilnomo {
 	private static Aset[] portofolio;
 	private static double earnings;
@@ -36,6 +34,11 @@ public class Pacilnomo {
 
 	private static void nextYear() {
 		// TODO implementasikan pemanggilan nextYear untuk setiap aset pada portofolio
+		for(Aset a : portofolio) {
+			a.nextYear();
+			earnings += a.kirimBunga();
+		}
+		System.out.println("CEK: " + earnings);
 	}
 	
 	public static void main(String[] args) {
@@ -62,10 +65,12 @@ public class Pacilnomo {
 			
 			if(jenisAset.equals("SAHAM")) {
 				// TODO tambahkan aset saham ke portofolio berdasarkan input user 
-				portofolio[i] = new Saham(namaAset, jumlah, harga);
+				// portofolio[i] = new Saham(namaAset, jumlah, harga);
 			} else if(jenisAset.equals("OBLIGASI")) {
 				// TODO tambahkan aset obligasi ke portofolio berdasarkan input user
-				portofolio[i] = new Obligasi(namaAset, jumlah, harga);
+				double bunga = Double.valueOf(inp[4]);
+				int maturitas = Integer.valueOf(inp[5]);
+				portofolio[i] = new Obligasi(namaAset, jumlah, harga, bunga, maturitas);
 			} 
 		}
 
