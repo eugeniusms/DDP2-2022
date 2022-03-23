@@ -1,15 +1,17 @@
 
 public class Saham extends Aset{
 	// TODO lengkapi visibility modifier atribut dan methods berikut
-	double dividen;
-	double pertumbuhan;
+	private double dividen;
+	private double pertumbuhan;
 	
 	Saham(String nama, int jumlah, double harga, double pertumbuhan, double dividen) {
-
+		super(nama, jumlah, harga);
+		this.pertumbuhan = pertumbuhan;
+		this.dividen = dividen;
 	}
 
 	@Override
-	void nextYear() {
+	public void nextYear() {
 		super.nextYear();
 		grow();
 
@@ -17,7 +19,7 @@ public class Saham extends Aset{
 	}
 
 	// Linear congruential generator for subsequent growth
-	void grow() {
+	public void grow() {
 		int a = 0x4b;
 		int c = 0x4a;
 		int m = 2;
@@ -27,8 +29,13 @@ public class Saham extends Aset{
 
 	// TODO lengkapi method toString ini
 	@Override
-	String toString() {
-		
+	public String toString() {
+		return this.getNama() + "\n"
+			+ "Tipe: Saham" + "\n"
+			+ "Harga: " + this.getHarga() + "\n"
+			+ "Jumlah: " + this.getJumlah() + "\n"
+			+ "Dividen: " + this.dividen + "\n"
+			+ "Pertumbuhan: " + this.pertumbuhan;
 	}
 
 	// TODO buat getter dan setter untuk fields pada class ini

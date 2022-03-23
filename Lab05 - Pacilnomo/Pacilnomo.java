@@ -36,7 +36,7 @@ public class Pacilnomo {
 		// TODO implementasikan pemanggilan nextYear untuk setiap aset pada portofolio
 		for(Aset a : portofolio) {
 			a.nextYear();
-			earnings += a.kirimBunga();
+			addToEarnings(a.kirimBunga());
 		}
 		System.out.println("CEK: " + earnings);
 	}
@@ -65,7 +65,9 @@ public class Pacilnomo {
 			
 			if(jenisAset.equals("SAHAM")) {
 				// TODO tambahkan aset saham ke portofolio berdasarkan input user 
-				// portofolio[i] = new Saham(namaAset, jumlah, harga);
+				double pertumbuhan = Double.valueOf(inp[4]);
+				double dividen = Double.valueOf(inp[5]);
+				portofolio[i] = new Saham(namaAset, jumlah, harga, pertumbuhan, dividen);
 			} else if(jenisAset.equals("OBLIGASI")) {
 				// TODO tambahkan aset obligasi ke portofolio berdasarkan input user
 				double bunga = Double.valueOf(inp[4]);
