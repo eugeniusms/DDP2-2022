@@ -11,21 +11,22 @@ public class Obligasi extends Aset {
 		this.bunga = bunga;
 		this.maturitas = maturitas;
 	}
-	
-	@Override
-	public double kirimUang() {
-		return this.getJumlah() * this.getHarga() * this.bunga;
-	} 
 
 	@Override
 	public double nextYear() {
 		// TODO validasi jatuh tempo
-		if (super.tahun > this.maturitas) {
+		if (super.tahun >= this.maturitas) {
 			jatuhTempo = true;
 		}
 		super.nextYear();
 		// TODO tambahkan bunga ke total pendapatan Pacilnomo 
-		return this.getJumlah() * (this.getHarga() * this.bunga);
+		// Saat belum jatuh tempo maka masih dapat bertambah bunganya
+		if (jatuhTempo == false) {
+			return this.getJumlah() * (this.getHarga() * this.bunga);
+		} else {
+			// Saat sudah jatuh tempo maka tidak bertambah bunganya
+			return 0;
+		}
 	}
 
 	// TODO lengkapi method toString ini

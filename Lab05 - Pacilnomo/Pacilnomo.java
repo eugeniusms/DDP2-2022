@@ -43,7 +43,6 @@ public class Pacilnomo {
 		for(Aset a : portofolio) {
 			addToEarnings(a.nextYear());
 		}
-		System.out.println("CEK: " + earnings);
 	}
 	
 	public static void main(String[] args) {

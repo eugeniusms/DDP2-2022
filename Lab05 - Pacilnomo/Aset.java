@@ -12,10 +12,6 @@ public class Aset {
 		this.jumlah = jumlah;
 		this.harga = harga;
 	}
-	
-	public double kirimUang() {
-		return 0;
-	} 
 
 	// Increment tahun
 	public double nextYear() {

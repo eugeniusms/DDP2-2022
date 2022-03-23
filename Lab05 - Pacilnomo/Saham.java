@@ -11,11 +11,6 @@ public class Saham extends Aset{
 	}
 
 	@Override
-	public double kirimUang() {
-		return this.dividen * (this.pertumbuhan * this.pertumbuhan) * this.getJumlah();
-	} 
-
-	@Override
 	public double nextYear() {
 		super.nextYear();
 		grow();
