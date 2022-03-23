@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import Obligasi;
+
 public class Pacilnomo {
 	private static Aset[] portofolio;
 	private static double earnings;
@@ -24,12 +26,11 @@ public class Pacilnomo {
 		// TODO implementasikan perhitungan total valuasi aset, yaitu nilai semua aset dan pendapatan dari dividen dan bunga
 
 		printSeparator();
-		System.out.printf("""
-		Info Portofolio
-		Jumlah Jenis Saham: %d
-		Jumlah Jenis Obligasi: %d
-		Total Nilai Portofolio: %.2f
-		""", jumlahSaham, jumlahObligasi, netWorth);
+		System.out.printf("" +
+		"Info Portofolio\n" +
+		"Jumlah Jenis Saham: %d\n" +
+		"Jumlah Jenis Obligasi: %d\n" +
+		"Total Nilai Portofolio: %.2f\n", jumlahSaham, jumlahObligasi, netWorth);
 		printSeparator();
 	}
 
@@ -38,12 +39,20 @@ public class Pacilnomo {
 	}
 	
 	public static void main(String[] args) {
+		// Program utama akan berjalan dari sini untuk menampilkan tampilan program dan
+		// mengambil input program
 		Scanner in = new Scanner(System.in);
 		System.out.print("Silakan masukkan banyak aset yang tersedia: ");
 		int banyakAset = Integer.parseInt(in.nextLine());
 		
+		// Inisiasi portofolio yang merupakan object Aset
 		portofolio = new Aset[banyakAset];
 		
+		// Program akan mengambil input dari user berupa format:
+		// 1) Format Saham
+		// <Nama Aset> <Jenis Aset> <Jumlah> <Harga> <Pertumbuhan> <Dividen>
+		// 2) Format Obligasi
+		// <Nama Aset> <Jenis Aset> <Jumlah> <Harga> <Bunga> <Maturitas>
 		for(int i = 0; i < banyakAset; i++) {
 			System.out.printf("Aset %d: ", i + 1);
 			String inp[] = in.nextLine().split("\\s+");
@@ -52,35 +61,33 @@ public class Pacilnomo {
 			double harga = Double.valueOf(inp[3]);
 			
 			if(jenisAset.equals("SAHAM")) {
-				// TODO tambahkan aset saham ke portofolio berdasarkan input user
+				// TODO tambahkan aset saham ke portofolio berdasarkan input user 
+				portofolio[i] = new Saham(namaAset, jumlah, harga);
 			} else if(jenisAset.equals("OBLIGASI")) {
 				// TODO tambahkan aset obligasi ke portofolio berdasarkan input user
+				portofolio[i] = new Obligasi(namaAset, jumlah, harga);
 			} 
 		}
 
 		System.out.print("Selamat datang di...");
-		System.out.print(""" 
-
-
-							 /$$$$$$$                     /$$ /$$                                            
-							| $$__  $$                   |__/| $$                                            
-							| $$  \\ $$ /$$$$$$   /$$$$$$$ /$$| $$ /$$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
-							| $$$$$$$/|____  $$ /$$_____/| $$| $$| $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$
-							| $$____/  /$$$$$$$| $$      | $$| $$| $$  \\ $$| $$  \\ $$| $$ \\ $$ \\ $$| $$  \\ $$
-							| $$      /$$__  $$| $$      | $$| $$| $$  | $$| $$  | $$| $$ | $$ | $$| $$  | $$
-							| $$     |  $$$$$$$|  $$$$$$$| $$| $$| $$  | $$|  $$$$$$/| $$ | $$ | $$|  $$$$$$/
-							|__/      \\_______/ \\_______/|__/|__/|__/  |__/ \\______/ |__/ |__/ |__/ \\______/ 
-																											
-                                                                                 
-                                                                                 """);
+		System.out.print("\n" +
+		"\n" +
+		" /$$$$$$$                     /$$ /$$\n" +
+		"| $$__  $$                   |__/| $$\n" +
+		"| $$  \\ $$ /$$$$$$   /$$$$$$$ /$$| $$ /$$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$\n" +
+		"| $$$$$$$/|____  $$ /$$_____/| $$| $$| $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$\n" +
+		"| $$____/  /$$$$$$$| $$      | $$| $$| $$  \\ $$| $$  \\ $$| $$ \\ $$ \\ $$| $$  \\ $$\n" +
+		"| $$      /$$__  $$| $$      | $$| $$| $$  | $$| $$  | $$| $$ | $$ | $$| $$  | $$\n" +
+		"| $$     |  $$$$$$$|  $$$$$$$| $$| $$| $$  | $$|  $$$$$$/| $$ | $$ | $$|  $$$$$$/\n" +
+		"|__/      \\_______/ \\_______/|__/|__/|__/  |__/ \\______/ |__/ |__/ |__/ \\______/\n\n");
 		
 		while(true) {
-			System.out.printf("""
-				Silakan pilih salah satu opsi berikut:
-				[1] Daftar aset
-				[2] Info portofolio
-				[3] Lanjut ke tahun berikutnya
-				[*] Keluar\n""", earnings);
+			System.out.printf("" +
+			"Silakan pilih salah satu opsi berikut:\n" +
+			"[1] Daftar aset\n" +
+			"[2] Info portofolio\n" +
+			"[3] Lanjut ke tahun berikutnya\n" +
+			"[*] Keluar\n");
 			printSeparator();
 			System.out.print("Input: ");
 			String pilihan = in.nextLine();

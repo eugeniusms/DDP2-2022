@@ -1,5 +1,5 @@
 
-public class Saham {
+public class Saham extends Aset{
 	// TODO lengkapi visibility modifier atribut dan methods berikut
 	double dividen;
 	double pertumbuhan;
