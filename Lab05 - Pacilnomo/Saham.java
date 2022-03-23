@@ -2,7 +2,7 @@
 public class Saham extends Aset{
 	// TODO lengkapi visibility modifier atribut dan methods berikut
 	private double dividen;
-	private double pertumbuhan;
+	public double pertumbuhan;
 	
 	Saham(String nama, int jumlah, double harga, double pertumbuhan, double dividen) {
 		super(nama, jumlah, harga);
@@ -11,11 +11,20 @@ public class Saham extends Aset{
 	}
 
 	@Override
-	public void nextYear() {
+	public double kirimUang() {
+		return this.dividen * (this.pertumbuhan * this.pertumbuhan) * this.getJumlah();
+	} 
+
+	@Override
+	public double nextYear() {
 		super.nextYear();
 		grow();
 
 		// TODO modifikasi harga sesuai dengan pertumbuhan sekarang dan tambahkan dividen ke earnings
+		// Set harga baru karena kenaikan tahunan
+		this.setHarga( this.getHarga() * (pertumbuhan+1) );
+		// Tambahkan Dividen
+		return this.dividen * (this.getHarga() * (1 + this.pertumbuhan)) * this.getJumlah();
 	}
 
 	// Linear congruential generator for subsequent growth
@@ -24,7 +33,7 @@ public class Saham extends Aset{
 		int c = 0x4a;
 		int m = 2;
 		pertumbuhan = ((a * pertumbuhan + c) % m) - 1;
-		pertumbuhan = pertumbuhan < 0 ? pertumbuhan % -m : pertumbuhan;
+		this.pertumbuhan = pertumbuhan < 0 ? pertumbuhan % -m : pertumbuhan;
 	}
 
 	// TODO lengkapi method toString ini

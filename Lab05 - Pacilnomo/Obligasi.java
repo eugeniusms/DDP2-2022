@@ -13,18 +13,19 @@ public class Obligasi extends Aset {
 	}
 	
 	@Override
-	public double kirimBunga() {
+	public double kirimUang() {
 		return this.getJumlah() * this.getHarga() * this.bunga;
 	} 
 
 	@Override
-	public void nextYear() {
+	public double nextYear() {
 		// TODO validasi jatuh tempo
 		if (super.tahun > this.maturitas) {
 			jatuhTempo = true;
 		}
 		super.nextYear();
 		// TODO tambahkan bunga ke total pendapatan Pacilnomo 
+		return this.getJumlah() * (this.getHarga() * this.bunga);
 	}
 
 	// TODO lengkapi method toString ini

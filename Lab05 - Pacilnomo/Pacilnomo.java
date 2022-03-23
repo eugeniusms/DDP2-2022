@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Pacilnomo {
 	private static Aset[] portofolio;
 	private static double earnings;
+	private static int totalSaham;
+	private static int totalObligasi;
 
 	private static void printSeparator() {
 		System.out.println("=".repeat(64));
@@ -18,10 +20,14 @@ public class Pacilnomo {
 	}
 
 	private static void infoPortofolio() {
-		int jumlahSaham = 0, jumlahObligasi = 0;
+		int jumlahSaham = totalSaham, jumlahObligasi = totalObligasi;
 		double netWorth = 0;
 
 		// TODO implementasikan perhitungan total valuasi aset, yaitu nilai semua aset dan pendapatan dari dividen dan bunga
+		for (Aset a : portofolio) {
+			netWorth += a.getNetWorth();
+		}
+		netWorth += earnings;
 
 		printSeparator();
 		System.out.printf("" +
@@ -35,8 +41,7 @@ public class Pacilnomo {
 	private static void nextYear() {
 		// TODO implementasikan pemanggilan nextYear untuk setiap aset pada portofolio
 		for(Aset a : portofolio) {
-			a.nextYear();
-			addToEarnings(a.kirimBunga());
+			addToEarnings(a.nextYear());
 		}
 		System.out.println("CEK: " + earnings);
 	}
@@ -65,11 +70,13 @@ public class Pacilnomo {
 			
 			if(jenisAset.equals("SAHAM")) {
 				// TODO tambahkan aset saham ke portofolio berdasarkan input user 
+				totalSaham += 1;
 				double pertumbuhan = Double.valueOf(inp[4]);
 				double dividen = Double.valueOf(inp[5]);
 				portofolio[i] = new Saham(namaAset, jumlah, harga, pertumbuhan, dividen);
 			} else if(jenisAset.equals("OBLIGASI")) {
 				// TODO tambahkan aset obligasi ke portofolio berdasarkan input user
+				totalObligasi += 1;
 				double bunga = Double.valueOf(inp[4]);
 				int maturitas = Integer.valueOf(inp[5]);
 				portofolio[i] = new Obligasi(namaAset, jumlah, harga, bunga, maturitas);

@@ -13,13 +13,14 @@ public class Aset {
 		this.harga = harga;
 	}
 	
-	public double kirimBunga() {
+	public double kirimUang() {
 		return 0;
 	} 
 
 	// Increment tahun
-	public void nextYear() {
+	public double nextYear() {
 		tahun += 1;
+		return 0;
 	}
 
 	// TODO buat getter dan setter untuk fields pada class ini
@@ -46,5 +47,10 @@ public class Aset {
 	// Setter Harga
 	public void setHarga(double hargaBaru) {
 		this.harga = hargaBaru;
+	}
+
+	// Getter NetWorth
+	public double getNetWorth() {
+		return this.getHarga() * this.getJumlah();
 	}
 }
