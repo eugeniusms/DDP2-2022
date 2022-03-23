@@ -36,10 +36,10 @@ public class Saham extends Aset{
 	public String toString() {
 		return this.getNama() + "\n"
 			+ "Tipe: Saham" + "\n"
-			+ "Harga: " + this.getHarga() + "\n"
+			+ "Harga: " + String.format("%.2f", this.getHarga()) + "\n"
 			+ "Jumlah: " + this.getJumlah() + "\n"
-			+ "Dividen: " + this.dividen + "\n"
-			+ "Pertumbuhan: " + this.pertumbuhan;
+			+ "Dividen: " + String.format("%.2f", this.dividen) + "\n"
+			+ "Pertumbuhan: " + String.format("%.2f", this.pertumbuhan);
 	}
 
 	// TODO buat getter dan setter untuk fields pada class ini

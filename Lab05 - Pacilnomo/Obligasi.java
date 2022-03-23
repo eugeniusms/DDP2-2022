@@ -15,7 +15,7 @@ public class Obligasi extends Aset {
 	@Override
 	public double nextYear() {
 		// TODO validasi jatuh tempo
-		if (super.tahun >= this.maturitas) {
+		if (super.tahun > this.maturitas) {
 			jatuhTempo = true;
 		}
 		super.nextYear();
@@ -32,11 +32,14 @@ public class Obligasi extends Aset {
 	// TODO lengkapi method toString ini
 	@Override
 	public String toString() {
+		if (super.tahun > this.maturitas) {
+			jatuhTempo = true;
+		}
 		return this.getNama() + "\n"
 			+ "Tipe: Obligasi" + "\n"
-			+ "Harga: " + this.getHarga() + "\n"
+			+ "Harga: " + String.format("%.2f", this.getHarga()) + "\n"
 			+ "Jumlah: " + this.getJumlah() + "\n"
-			+ "Bunga: " + this.bunga + "\n"
+			+ "Bunga: " + String.format("%.2f", this.bunga) + "\n"
 			+ "Jatuh Tempo: " + jatuhTempo;
 	}
 	// TODO buat getter dan setter untuk fields pada class ini
