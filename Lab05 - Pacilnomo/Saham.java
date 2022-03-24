@@ -1,24 +1,29 @@
-
+// Saham merupakan subclass dari Aset yang digunakan untuk inisiasi object saham
 public class Saham extends Aset{
-	// TODO lengkapi visibility modifier atribut dan methods berikut
+	// Inisiasi data field class Saham
 	private double dividen;
 	public double pertumbuhan;
 	
+	// Constructor Saham
 	Saham(String nama, int jumlah, double harga, double pertumbuhan, double dividen) {
 		super(nama, jumlah, harga);
 		this.pertumbuhan = pertumbuhan;
 		this.dividen = dividen;
 	}
 
+	// Method ini akan meng-override method yang ada di dalam superclass
+	// Override digunakan khusus untuk kasus saham dalam hal ini,
+	// Karena saham berbeda perhitungan dengan obligasi
 	@Override
 	public double nextYear() {
+		// Akan menambahkan tahun berlangsungnya program
 		super.nextYear();
+		// Menyusun pertumbuhan tahunan menggunakan method grow()
 		grow();
 
-		// TODO modifikasi harga sesuai dengan pertumbuhan sekarang dan tambahkan dividen ke earnings
 		// Set harga baru karena kenaikan tahunan
 		this.setHarga( this.getHarga() * (pertumbuhan + 1) );
-		// Tambahkan Dividen
+		// Menambahkan Dividen
 		return this.dividen * this.getHarga() * this.getJumlah();
 	}
 
@@ -31,9 +36,11 @@ public class Saham extends Aset{
 		this.pertumbuhan = pertumbuhan < 0 ? pertumbuhan % -m : pertumbuhan;
 	}
 
-	// TODO lengkapi method toString ini
+	// Method ini digunakan untuk menampilkan tampilan dari saham yang dimiliki
+	// oleh pengguna, tampilan akan diformat sedemikian rupa agar mudah dibaca
 	@Override
 	public String toString() {
+		// Mengembalikan format tampilan layar nantinya ke pengguna
 		return this.getNama() + "\n"
 			+ "Tipe: Saham" + "\n"
 			+ "Harga: " + String.format("%.2f", this.getHarga()) + "\n"
@@ -41,6 +48,4 @@ public class Saham extends Aset{
 			+ "Dividen: " + String.format("%.2f", this.dividen) + "\n"
 			+ "Pertumbuhan: " + String.format("%.2f", this.pertumbuhan);
 	}
-
-	// TODO buat getter dan setter untuk fields pada class ini
 }

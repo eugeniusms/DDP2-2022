@@ -1,10 +1,11 @@
-
+// Obligasi merupakan subclass dari Aset yang digunakan untuk inisiasi object obligasi
 public class Obligasi extends Aset {
-	// TODO lengkapi visibility modifier atribut dan methods berikut
+	// Inisiasi data field class Obligasi
 	private double bunga;
 	private int maturitas;
 	private boolean jatuhTempo = false;
 	
+	// Constructor Obligasi
 	Obligasi(String nama, int jumlah, double harga, double bunga, int maturitas) {
 		// TODO lengkapi constructor ini
 		super(nama, jumlah, harga);
@@ -12,15 +13,19 @@ public class Obligasi extends Aset {
 		this.maturitas = maturitas;
 	}
 
+	// Method ini akan meng-override method yang ada di dalam superclass
+	// Override digunakan khusus untuk kasus obligasi dalam hal ini,
+	// Karena obligasi berbeda perhitungan dengan saham
 	@Override
 	public double nextYear() {
-		// TODO validasi jatuh tempo
+		// Saat tahun sudah melebihi maturitas dari obligasi maka obligasi akan jatuh tempo
 		if (super.tahun > this.maturitas) {
 			jatuhTempo = true;
 		}
+		// Menambahkan tahun berjalan
 		super.nextYear();
-		// TODO tambahkan bunga ke total pendapatan Pacilnomo 
-		// Saat belum jatuh tempo maka masih dapat bertambah bunganya
+
+		// Saat belum jatuh tempo maka masih dapat bertambah bunganya dan dikembalikan ke earnings
 		if (jatuhTempo == false) {
 			return this.getJumlah() * (this.getHarga() * this.bunga);
 		} else {
@@ -29,12 +34,17 @@ public class Obligasi extends Aset {
 		}
 	}
 
-	// TODO lengkapi method toString ini
+	// Method ini digunakan untuk menampilkan tampilan dari obligasi yang dimiliki
+	// oleh pengguna, tampilan akan diformat sedemikian rupa agar mudah dibaca
 	@Override
 	public String toString() {
+		// Pertama-tama cek terlebih dahulu tahun yang berjalan, jika sudah melewati
+		// maturitas maka ganti sekaligus nilai dari jatuh temponya
 		if (super.tahun > this.maturitas) {
 			jatuhTempo = true;
 		}
+
+		// Mengembalikan format tampilan layar nantinya ke pengguna
 		return this.getNama() + "\n"
 			+ "Tipe: Obligasi" + "\n"
 			+ "Harga: " + String.format("%.2f", this.getHarga()) + "\n"
@@ -42,5 +52,4 @@ public class Obligasi extends Aset {
 			+ "Bunga: " + String.format("%.2f", this.bunga) + "\n"
 			+ "Jatuh Tempo: " + jatuhTempo;
 	}
-	// TODO buat getter dan setter untuk fields pada class ini
 }
