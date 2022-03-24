@@ -18,12 +18,12 @@ public class Obligasi extends Aset {
 	// Karena obligasi berbeda perhitungan dengan saham
 	@Override
 	public double nextYear() {
+		// Menambahkan tahun berjalan
+		super.nextYear();
 		// Saat tahun sudah melebihi maturitas dari obligasi maka obligasi akan jatuh tempo
 		if (super.tahun > this.maturitas) {
 			jatuhTempo = true;
 		}
-		// Menambahkan tahun berjalan
-		super.nextYear();
 
 		// Saat belum jatuh tempo maka masih dapat bertambah bunganya dan dikembalikan ke earnings
 		if (jatuhTempo == false) {
@@ -38,12 +38,6 @@ public class Obligasi extends Aset {
 	// oleh pengguna, tampilan akan diformat sedemikian rupa agar mudah dibaca
 	@Override
 	public String toString() {
-		// Pertama-tama cek terlebih dahulu tahun yang berjalan, jika sudah melewati
-		// maturitas maka ganti sekaligus nilai dari jatuh temponya
-		if (super.tahun > this.maturitas) {
-			jatuhTempo = true;
-		}
-
 		// Mengembalikan format tampilan layar nantinya ke pengguna
 		return this.getNama() + "\n"
 			+ "Tipe: Obligasi" + "\n"
