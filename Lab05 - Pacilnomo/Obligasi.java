@@ -7,7 +7,6 @@ public class Obligasi extends Aset {
 	
 	// Constructor Obligasi
 	Obligasi(String nama, int jumlah, double harga, double bunga, int maturitas) {
-		// TODO lengkapi constructor ini
 		super(nama, jumlah, harga);
 		this.bunga = bunga;
 		this.maturitas = maturitas;
