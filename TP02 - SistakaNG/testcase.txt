@@ -1,0 +1,1232 @@
+Dek Depe
+SSI
+2021
+17/08/2003
+
+Mario
+SIK
+2021
+13/05/2002
+
+Dek Depe
+SSI
+2021
+17-08-2003
+
+// KATEGORI
+
+2
+Non Fiksi
+20
+2
+nON Fiksi
+20
+
+// CEK TAMBAH BUKU 
+
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Kak Depe
+Satria
+Pemrograman
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+0
+
+// CEK PEMINJAMAN
+
+/ case id anggota tak ditemukan / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DA
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+4
+
+/ case buku tidak ditemukan / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Aja
+Kak Depe
+08/03/2022
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Dek Depe
+08/03/2022
+
+/ case stok kurang dari 1 / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+1
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+4 
+SIK211305029Q
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+
+/ case maksimal 3 peminjaman / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+5
+3
+Belajar Python
+Kak Depe
+Satria
+Non Fiksi
+5
+3
+Belajar Ruby
+Kak Depe
+Satria
+Non Fiksi
+5
+3
+Belajar CPP
+Kak Depe
+Satria
+Non Fiksi
+5
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+4
+SSI21170803DE
+Belajar Python
+Kak Depe
+08/03/2022
+4
+SSI21170803DE
+Belajar Ruby
+Kak Depe
+08/03/2022
+4
+SSI21170803DE
+Belajar CPP
+Kak Depe
+08/03/2022
+
+/ case denda lebih dari 5000 /
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+
+/ case sedang dipinjam / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+
+// CEK PENGEMBALIAN
+
+/ case pengembalian success 1 / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+
+/ case pengembalian success 2 / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+12/03/2022
+
+/ case pengembalian id tidak ditemukan / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DA
+Belajar Pemrograman Dasar
+Kak Depe
+12/03/2022
+
+/ case pengembalian buku tidak ditemukan / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Aja
+Kak Depe
+12/03/2022
+
+/ case pengembalian buku tidak ia pinjam / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Python
+Dek Depe
+12/03/2022
+
+// CEK SBAYAR DENDA
+
+/ case denda nyicil / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+6
+SSI21170803DE
+3000
+
+/ case denda lunas / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+6
+SSI21170803DE
+9000
+
+/ case id tidak ditemukan / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+6
+SSI21170803DA
+9000
+
+/ case tidak ada denda / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+12/03/2022
+6
+SSI21170803DE
+9000
+
+// CEK DETAIL ANGGOTA
+
+/ case 1 buku sudah kembali/ SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+6
+SSI21170803DE
+3000
+7
+SSI21170803DE
+
+/ case 2 buku (1 buku belum dikembalikan) / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+7
+SSI21170803DE
+
+/ case id tidak ada / SUCCESS
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+7
+SSI21170803DA
+
+// CEK RANKING ANGGOTA
+
+/ case 3 orang (2 orang belum pinjam buku) cek urutan nama / SUCCESS
+
+1
+Maura
+SIK
+2021
+17/09/2003
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+8
+
+/ case 3 orang (semua pinjam buku) berdasarkan nama dan score / SUCCESS (Dek Depe -> Maura -> Mario) 
+
+1
+Maura
+SIK
+2021
+17/09/2003
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+2
+Fiksi
+10
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+3
+Pangeran
+Mbah Depe
+Sunda Empire
+Fiksi
+10
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+4
+SIK211709036T
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211709036T
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211305029Q
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211305029Q
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211709036T
+Belajar Pemrograman Dasar
+Kak Depe
+09/03/2022
+5
+SIK211709036T
+Belajar Pemrograman Dasar
+Kak Depe
+15/03/2022
+8
+
+/ case 4 orang (tampilkan 3 orang saja) /
+
+1
+Roesiani
+SIK
+2021
+14/03/2004
+1
+Maura
+SIK
+2021
+17/09/2003
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+2
+Fiksi
+10
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+3
+Pangeran
+Mbah Depe
+Sunda Empire
+Fiksi
+10
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+4
+SIK211709036T
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211709036T
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211305029Q
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211305029Q
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211709036T
+Belajar Pemrograman Dasar
+Kak Depe
+09/03/2022
+5
+SIK211709036T
+Belajar Pemrograman Dasar
+Kak Depe
+15/03/2022
+8
+
+/ case poin sama / 
+
+1
+Roesiani
+SIK
+2021
+14/03/2004
+1
+Maura
+SIK
+2021
+17/09/2003
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+2
+Fiksi
+10
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+3
+Pangeran
+Mbah Depe
+Sunda Empire
+Fiksi
+10
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+4
+SIK211709036T
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211709036T
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211305029Q
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211305029Q
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211305029Q
+Belajar Pemrograman Dasar
+Kak Depe
+09/03/2022
+5
+SIK211305029Q
+Belajar Pemrograman Dasar
+Kak Depe
+15/03/2022
+4
+SIK211709036T
+Belajar Pemrograman Dasar
+Kak Depe
+09/03/2022
+5
+SIK211709036T
+Belajar Pemrograman Dasar
+Kak Depe
+15/03/2022
+8
+
+/ case kurang dari 3 orang /
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+1
+Mario
+SIK
+2021
+13/05/2002
+2
+Non Fiksi
+20
+2
+Fiksi
+10
+3
+Belajar Pemrograman Dasar
+Kak Depe
+Airlangga, Co.
+Non Fiksi
+10
+3
+Belajar Python
+Dek Depe
+Satria
+Non Fiksi
+1
+3
+Pangeran
+Mbah Depe
+Sunda Empire
+Fiksi
+10
+4
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+08/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+17/03/2022
+6
+SSI21170803DE
+3000
+4
+SSI21170803DE
+Belajar Python
+Dek Depe
+19/03/2022
+5
+SSI21170803DE
+Belajar Pemrograman Dasar
+Kak Depe
+18/03/2022
+4
+SIK211305029Q
+Pangeran
+Mbah Depe
+09/03/2022
+5
+SIK211305029Q
+Pangeran
+Mbah Depe
+15/03/2022
+4
+SIK211305029Q
+Belajar Pemrograman Dasar
+Kak Depe
+09/03/2022
+5
+SIK211305029Q
+Belajar Pemrograman Dasar
+Kak Depe
+15/03/2022
+8
+
+/ case belum ada anggota /
+
+8
+
+?? KASUS BUKU DIKEMBALIKAN DIPINJAM KEMBALI ?? -> HARUSNYA KEHANDLE FALSE DI CONSTRUCT BOOKLEAN
+?? CEK FORMATTING TERMINAL ??
+
+// TESTCASE SOAL
+
+1
+Dek Depe
+SSI
+2021
+17/08/2003
+2
+Non Fiksi
+20
+3
+DDP
+Kak Depe
+Airlangga
+NoN FikSI
+20
+4
+SSI21170803DE
+DekDepe
+Kak Depe
+13/03/2022
+4
+SSI21170803DE
+DDP
+Kak Depe
+13/03/2022
+7
+SSI21170803DE
+5
+SSI21170803DE
+DDP
+Kak Depe
+20/03/2022
+5
+SSI21170803DE
+DDP
+Kak Depe
+22/03/2022
+
+
+// LEAK BOCOR SAAT BUKU UDAH DIKEMBALIKAN TETAPI MASIH ADA DI MEMBER (1)
+-> Status -> True (Sedang Dipinjam)
+-> Solusi kembalikan status saat dikembalikan ke false
