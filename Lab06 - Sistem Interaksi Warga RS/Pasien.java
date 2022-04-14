@@ -26,7 +26,7 @@ public class Pasien extends Warga {
 				this.happiness -= 5;
 			}
 			// Saat pasien masih sakit dan dokter tersebut dapat menyembuhkan maka tambahkan 20
-			if (X.pasienSembuh == false && X.getPenyakitKeahlian().equals(this.penyakit)) {
+			if (this.pasienSembuh == false && X.getPenyakitKeahlian().toLowerCase().equals(this.penyakit.toLowerCase())) {
 				this.pasienSembuh = true;
 				this.happiness += 20;
 			}

@@ -1,0 +1,24 @@
+8
+ADD DOKTER Andi Batuk Yes
+ADD DOKTER Charlie Batuk No
+ADD PASIEN Budi Batuk
+INTERAKSI Andi Budi
+INTERAKSI Andi Charlie
+LOG Andi
+LOG Budi
+LOG Charlie
+
+13
+ADD PASIEN Dekdepe Demam
+ADD PASIEN Eva Pusing
+INTERAKSI Dekdepe Eva
+ADD DOKTER Fira Diabetes Yes
+ADD DOKTER Galih Demam No
+INTERAKSI Dekdepe Fira
+INTERAKSI Dekdepe Galih
+INTERAKSI Eva Galih
+INTERAKSI Galih Eva
+LOG Dekdepe
+LOG Eva
+LOG Fira
+LOG Galih
