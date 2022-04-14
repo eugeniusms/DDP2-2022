@@ -11,9 +11,11 @@ public class Warga {
 		this.logInteraksi = new Warga[0];
 	}
 
+	// Method mengembalikan nama
 	public String getNama() {
-		return nama;
+		return this.nama;
 	}
+
 	// Method sengaja dikosongkan
 	public void berinteraksi(Warga X){
 	}
@@ -36,7 +38,7 @@ public class Warga {
 		return this.nama;
 	}
 
-	// TODO: Lengkapi getLogInteraksi() dengan mengembalikan log interaksi warga
+	// Lengkapi getLogInteraksi() dengan mengembalikan log interaksi warga
 	public Warga[] getLogInteraksi(){
 		return this.logInteraksi;
 	}
@@ -45,27 +47,27 @@ public class Warga {
 		return this.jenisWarga;
 	}
 
-	// Method override sengaja aku (Mario) default
+	// Method override sengaja dibuat default
 	public int getHappiness() {
 		return 0;
 	}
 
-	// Method override sengaja aku (Mario) default
+	// Method override sengaja dibuat default
 	public boolean getStatusSembuh() {
 		return false;
 	}
 
-	// Method override sengaja aku (Mario) default
+	// Method override sengaja aku dibuat default
 	public int getJumlahPasienDitemui() {
 		return 0;
 	}
 
-	// Method override sengaja aku (Mario) default
+	// Method override sengaja aku dibuat default
 	public String getPenyakitKeahlian(){
 		return "";
 	}
 
-	// Method override sengaja aku (Mario) default
+	// Method override sengaja aku dibuat default
 	public boolean getDokterRamah(){
 		return false;
 	}

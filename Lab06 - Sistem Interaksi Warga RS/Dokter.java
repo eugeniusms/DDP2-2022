@@ -1,5 +1,5 @@
 public class Dokter extends Warga {
-	// TODO: Ubah modifier atribut pada class Dokter agar code menjadi lebih aman
+	// Mengubah modifier atribut pada class Dokter menjadi private agar code menjadi lebih aman
 	private int jumlahPasienDitemui;
 	private String penyakitKeahlian;
 	private boolean dokterRamah;
@@ -12,29 +12,33 @@ public class Dokter extends Warga {
 		this.dokterRamah = dokterRamah;
 	}
 
-	// TODO: Lengkapi method berinteraksi untuk dokter
+	// Method berinteraksi untuk dokter
 	@Override
 	public void berinteraksi(Warga X){
 		this.addLogInteraksi(X);
 		if (X.getJenisWarga().equals("Pasien")) {
+			// Menambahkan jumlah pasien yang ditemui oleh dokter
 			this.jumlahPasienDitemui += 1;
 		}
 	}
 
-	// TODO: Lengkapi toString dengan memanggil method toString milik superclass
+	// Memanggil method toString milik superclass
 	@Override
 	public String toString() {
 		return super.toString();
 	}
 
+	// Getter untuk jumlah pasien yang ditemui
 	public int getJumlahPasienDitemui(){
 		return this.jumlahPasienDitemui;
 	}
 
+	// Getter untuk dokter ahli penyakit apa
 	public String getPenyakitKeahlian(){
 		return this.penyakitKeahlian;
 	}
 
+	// Getter untuk mengambil data dokter ramah atau tidak
 	public boolean getDokterRamah(){
 		return this.dokterRamah;
 	}
