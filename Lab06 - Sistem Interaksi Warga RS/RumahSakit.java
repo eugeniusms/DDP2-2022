@@ -16,7 +16,7 @@ class RumahSakit {
 
     static private void handleLog(Warga X) {
 		//TODO: Lengkapi conditional jika X adalah seorang pasien
-		if (X.getJenisWarga() == "Pasien") { // Jika pasien
+		if (X.getJenisWarga().equals("Pasien")) { // Jika pasien
 			out.println(X.getHappiness()); // TODO: Lengkapi dengan happiness pasien
 			out.println(X.getStatusSembuh()); // TODO: Lengkapi dengan status kesembuhan pasien
 		} else { // Jika dokter

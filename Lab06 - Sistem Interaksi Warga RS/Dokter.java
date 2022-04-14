@@ -16,6 +16,9 @@ public class Dokter extends Warga {
 	@Override
 	public void berinteraksi(Warga X){
 		this.addLogInteraksi(X);
+		if (X.getJenisWarga().equals("Pasien")) {
+			this.jumlahPasienDitemui += 1;
+		}
 	}
 
 	// TODO: Lengkapi toString dengan memanggil method toString milik superclass

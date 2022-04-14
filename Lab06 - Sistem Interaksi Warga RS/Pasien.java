@@ -17,7 +17,7 @@ public class Pasien extends Warga {
 	public void berinteraksi(Warga X) {
 		this.addLogInteraksi(X);
 		// ADD HAPPINESS
-		if (X.getJenisWarga() == "Dokter") { // Saat X => Dokter
+		if (X.getJenisWarga().equals("Dokter")) { // Saat X => Dokter
 			// Cek dokter ramah atau tidak
 			if (X.getDokterRamah() == true) {
 				this.happiness += 10;
@@ -26,7 +26,7 @@ public class Pasien extends Warga {
 			}
 
 			// Saat dokter tersebut dapat menyembuhkan
-			if (X.getPenyakitKeahlian() == this.penyakit) {
+			if (X.getPenyakitKeahlian().equals(this.penyakit)) {
 				this.pasienSembuh = true;
 				this.happiness += 20;
 			}
