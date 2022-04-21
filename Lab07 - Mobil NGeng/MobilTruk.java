@@ -28,8 +28,8 @@ public class MobilTruk extends Mobil{ //TODO: impelementasikan sesuai UML diagra
         for (int i = 1; i <= 4; i++) { // 4x gas
             langkah[i] = super.gas(); 
         } 
-        langkah[6] = super.stop(); // 1x stop
-        langkah[7] = this.isiBahanBakar(); // 1x isi bahan bakar
+        langkah[5] = super.stop(); // 1x stop
+        langkah[6] = this.isiBahanBakar(); // 1x isi bahan bakar
         return langkah;
     }
 
