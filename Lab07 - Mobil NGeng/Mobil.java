@@ -50,6 +50,7 @@ abstract class Mobil {
                 return String.format("%s digas dengan cepat di %s! Bahan bakar mobil %s sekarang %d%.");
             } else {
                 // Saat bahan bakar habis // RETURN LISTRIK ATAU TETAP BENSIN? # CHECKME
+                return "Bensin habis!";
             }
         } else {
             // Saat mobil masih belum menyala
