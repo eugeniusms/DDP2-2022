@@ -27,7 +27,7 @@ abstract class Mobil {
     // TODO: Lengkapi method ini
     public String gas(){
         // Method hanya berjalan ketika mobil menyala
-        if (this.isOn.equals(true)) {
+        if (this.isOn == true) {
             // Mobil hanya akan digas saat bahan bakar tidak habis
             if (this.persenFuel > 0) {
                 String N, Z, Y;

@@ -2,14 +2,14 @@ public class MobilTerbang extends Mobil{ //TODO: impelementasikan sesuai UML dia
     
     public MobilTerbang(String nama, EngineBehaviour engineBehaviour, String bahanBakar) {
         // TODO: Lengkapi Constructor berikut
-        super(nama, engineBehaviour, bahanBakar);
+        super(nama, engineBehaviour, bahanBakar, "Terbang");
     }
 
     // TODO: Lengkapi method ini
     @Override
     public String isiBahanBakar(){
         // Saat mobil sudah mati maka dapat diisi bahan bakarnya
-        if (this.getIsOn().equals(false)) {
+        if (this.getIsOn() == false) {
             // Set bahan bakar penuh kembali
             super.setPersenFuel(100);
             return String.format("%s sekarang sudah penuh, mobil dapat terbang kembali!", this.getBahanBakar());
