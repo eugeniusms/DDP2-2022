@@ -2,7 +2,7 @@ public class MobilAir extends Mobil { //TODO: impelementasikan sesuai UML diagra
   
     public MobilAir(String nama, EngineBehaviour engineBehaviour, String bahanBakar){
         // TODO: Lengkapi constructor berikut
-        super(nama, engineBehaviour, bahanBakar, jenis);
+        super(nama, engineBehaviour, bahanBakar);
     }
 
     // TODO: Lengkapi method ini
@@ -22,13 +22,14 @@ public class MobilAir extends Mobil { //TODO: impelementasikan sesuai UML diagra
     // TODO: Lengkapi method ini
     @Override
     public String[] simulasi(){
-        // Simulasi mobil dengan start -> 5x gas -> stop -> isi bahan bakar
-        super.start(); // 1x start
-        for (int i = 0; i < 5; i++) { // 5x gas
-            super.gas(); 
+        String[] langkah = new String[8];
+        // Simulasi mobil dengan start -> 5x gas -> stop -> isi bahan bakar (8 langkah)
+        langkah[0] = super.start(); // 1x start
+        for (int i = 1; i <= 5; i++) { // 5x gas
+            langkah[i] = super.gas(); 
         } 
-        super.stop(); // 1x stop
-        this.isiBahanBakar(); // 1x isi bahan bakar
-        return null;
+        langkah[6] = super.stop(); // 1x stop
+        langkah[7] = this.isiBahanBakar(); // 1x isi bahan bakar
+        return langkah;
     }   
 }
