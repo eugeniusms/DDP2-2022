@@ -1,11 +1,12 @@
-public class MobilAir extends Mobil { //TODO: impelementasikan sesuai UML diagram
+// Subclass jenis mobil air dari parent class Mobil
+public class MobilAir extends Mobil { 
   
+    // Constructor mobil jenis "Air" yang diwariskan dari parent class
     public MobilAir(String nama, EngineBehaviour engineBehaviour, String bahanBakar){
-        // TODO: Lengkapi constructor berikut
         super(nama, engineBehaviour, bahanBakar, "Air");
     }
 
-    // TODO: Lengkapi method ini
+    // Method override isiBahanBakar (mengisi bahan bakar mobil)
     @Override
     public String isiBahanBakar(){
         // Saat mobil sudah mati maka dapat diisi bahan bakarnya
@@ -19,7 +20,7 @@ public class MobilAir extends Mobil { //TODO: impelementasikan sesuai UML diagra
         }
     }
 
-    // TODO: Lengkapi method ini
+    // Method override simulasi (menjalankan simulasi mobil berdasarkan jenisnya)
     @Override
     public String[] simulasi(){
         String[] langkah = new String[8];

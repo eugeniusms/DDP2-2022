@@ -1,4 +1,7 @@
+// Class abstrak sebuah mobil
 abstract class Mobil {
+
+    // Terdapat beberapa data field private untuk sebuah mobil sebagai berikut
     private String nama;
     private int persenFuel;
     private String bahanBakar;
@@ -6,8 +9,10 @@ abstract class Mobil {
     private EngineBehaviour engineBehaviour;
     private boolean isOn;
 
+    // Constructor sebuah mobil visibilitynya protected, dengan beberapa field termasuk default field yaitu 
+    // 1. persenFuel = 100 (bahan bakar penuh)
+    // 2. isOn = false (mobil mati)
     protected Mobil (String nama, EngineBehaviour engineBehaviour, String bahanBakar, String jenis){
-        // TODO: Lengkapi constructor berikut
         this.nama = nama;
         this.engineBehaviour = engineBehaviour;
         this.bahanBakar = bahanBakar;
@@ -17,22 +22,24 @@ abstract class Mobil {
         this.isOn = false;
     }
 
-    // TODO: Lengkapi method ini // RETURN APA? # CHECKME
+    // Method untuk start (memulai penghidupan mesin)
     public String start(){
         // Menghidupkan mobil 
         this.isOn = true; 
         return this.engineBehaviour.start(this);
     }
 
-    // TODO: Lengkapi method ini
+    // Method untuk gas (menjalankan sebuah mesin)
     public String gas(){
         // Method hanya berjalan ketika mobil menyala
         if (this.isOn == true) {
             // Mobil hanya akan digas saat bahan bakar tidak habis
             if (this.persenFuel > 0) {
+                // Deklarasi variabel yang akan digunakan
                 String N, Y;
                 String Z = "";
                 int X;
+
                 // Mendapatkan permukaan kendara jenis mobil 
                 if (this.jenis.equals("Air")) {
                     Z = "Laut";
@@ -41,6 +48,7 @@ abstract class Mobil {
                 } else if (this.jenis.equals("Truk")) {
                     Z = "Jalan Raya";
                 }
+
                 // Mendapatkan nama mobil
                 N = this.getNama();
                 // Mendapatkan jenis bahan bakar mobil
@@ -60,16 +68,17 @@ abstract class Mobil {
         }
     }
   
-    // TODO: Lengkapi method ini // RETURN APA? # CHECKME
+    // Method untuk stop (menghentikan mesin)
     public String stop(){
         this.isOn = false;
         return this.engineBehaviour.stop(this);
     }
   
+    // Method abstrak isiBahanBakar dan simulasi
     public abstract String isiBahanBakar();
     public abstract String[] simulasi();
 
-    // Getter & Setter
+    // Berikut adalah Getter & Setter
     public String getNama() {
         return nama; 
     }
