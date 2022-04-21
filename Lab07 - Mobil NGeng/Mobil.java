@@ -8,21 +8,59 @@ abstract class Mobil {
 
     protected Mobil (String nama, EngineBehaviour engineBehaviour, String bahanBakar, String jenis){
         // TODO: Lengkapi constructor berikut
+        this.nama = nama;
+        this.engineBehaviour = engineBehaviour;
+        this.bahanBakar = bahanBakar;
+        this.jenis = jenis;
+        // Default data field
+        this.persenFuel = 100;
+        this.isOn = false;
     }
 
-    // TODO: Lengkapi method ini
+    // TODO: Lengkapi method ini // RETURN APA? # CHECKME
     public String start(){
-        return "";
+        // Menghidupkan mobil 
+        this.isOn = true; 
+        return this.engineBehaviour.start(this);
     }
 
     // TODO: Lengkapi method ini
     public String gas(){
-        return "";
+        // Method hanya berjalan ketika mobil menyala
+        if (this.isOn.equals(true)) {
+            // Mobil hanya akan digas saat bahan bakar tidak habis
+            if (this.persenFuel > 0) {
+                String N, Z, Y;
+                int X;
+                // Mendapatkan permukaan kendara jenis mobil 
+                if (this.jenis.equals("Air")) {
+                    Z = "Air";
+                } else if (this.jenis.equals("Terbang")) {
+                    Z = "Langit";
+                } else if (this.jenis.equals("Truk")) {
+                    Z = "Jalan Raya";
+                }
+                // Mendapatkan nama mobil
+                N = this.getNama();
+                // Mendapatkan jenis bahan bakar mobil
+                Y = this.bahanBakar;
+                // Mendapatkan sisa bahan bakar
+                X = this.engineBehaviour.gas(this.persenFuel);
+
+                return String.format("%s digas dengan cepat di %s! Bahan bakar mobil %s sekarang %d%.");
+            } else {
+                // Saat bahan bakar habis // RETURN LISTRIK ATAU TETAP BENSIN? # CHECKME
+            }
+        } else {
+            // Saat mobil masih belum menyala
+            return "Nyalakan mobil dulu!";
+        }
     }
   
-    // TODO: Lengkapi method ini
+    // TODO: Lengkapi method ini // RETURN APA? # CHECKME
     public String stop(){
-        return "";
+        this.isOn = false;
+        return this.engineBehaviour.stop(this);
     }
   
     public abstract String isiBahanBakar();
