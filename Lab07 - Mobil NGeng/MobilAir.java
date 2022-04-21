@@ -15,7 +15,7 @@ public class MobilAir extends Mobil { //TODO: impelementasikan sesuai UML diagra
             return String.format("%s sekarang sudah penuh, mobil dapat digunakan kembali!", this.getBahanBakar());
         } else {
             // Saat mobil masih hidup tidak dapat diisi bahan bakarnya
-            return String.format("Mobil masih menyala, matikan terlebih dahulu agar tidak tenggelam.", this.getBahanBakar());
+            return "Mobil masih menyala, matikan terlebih dahulu agar tidak tenggelam.";
         }
     }
 

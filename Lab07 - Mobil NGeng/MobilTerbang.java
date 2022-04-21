@@ -15,7 +15,7 @@ public class MobilTerbang extends Mobil{ //TODO: impelementasikan sesuai UML dia
             return String.format("%s sekarang sudah penuh, mobil dapat terbang kembali!", this.getBahanBakar());
         } else {
             // Saat mobil masih hidup tidak dapat diisi bahan bakarnya
-            return String.format("Mobil masih terbang, matikan terlebih dahulu agar tidak jatuh.", this.getBahanBakar());
+            return "Mobil masih terbang, matikan terlebih dahulu agar tidak jatuh.";
         }
     }
 

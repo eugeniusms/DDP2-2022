@@ -30,7 +30,8 @@ abstract class Mobil {
         if (this.isOn == true) {
             // Mobil hanya akan digas saat bahan bakar tidak habis
             if (this.persenFuel > 0) {
-                String N, Z, Y;
+                String N, Y;
+                String Z = "";
                 int X;
                 // Mendapatkan permukaan kendara jenis mobil 
                 if (this.jenis.equals("Air")) {
@@ -47,7 +48,7 @@ abstract class Mobil {
                 // Mendapatkan sisa bahan bakar
                 X = this.engineBehaviour.gas(this.persenFuel);
 
-                return String.format("%s digas dengan cepat di %s! Bahan bakar mobil %s sekarang %d%.");
+                return String.format("%s digas dengan cepat di %s! Bahan bakar mobil %s sekarang %d%%.", N, Z, Y, X);
             } else {
                 // Saat bahan bakar habis // RETURN LISTRIK ATAU TETAP BENSIN? # CHECKME
                 return "Bensin habis!";

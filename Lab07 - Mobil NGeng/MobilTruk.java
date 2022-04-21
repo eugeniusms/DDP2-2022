@@ -15,7 +15,7 @@ public class MobilTruk extends Mobil{ //TODO: impelementasikan sesuai UML diagra
             return String.format("%s sekarang sudah penuh, mobil dapat digaskeun kembali!", this.getBahanBakar());
         } else {
             // Saat mobil masih hidup tidak dapat diisi bahan bakarnya
-            return String.format("Mobil masih menyala, matikan terlebih dahulu agar tidak meledak.", this.getBahanBakar());
+            return "Mobil masih menyala, matikan terlebih dahulu agar tidak meledak.";
         }
     }
 
