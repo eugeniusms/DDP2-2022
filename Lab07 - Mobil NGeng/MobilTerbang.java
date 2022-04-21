@@ -22,14 +22,14 @@ public class MobilTerbang extends Mobil{ //TODO: impelementasikan sesuai UML dia
     // TODO: Lengkapi method ini
     @Override
     public String[] simulasi(){
-        String[] langkah = new String[7];
-        // Simulasi mobil dengan start -> 4x gas -> stop -> isi bahan bakar (7 langkah)
+        String[] langkah = new String[5];
+        // Simulasi mobil dengan start -> 2x gas -> stop -> isi bahan bakar (7 langkah)
         langkah[0] = super.start(); // 1x start
-        for (int i = 1; i <= 4; i++) { // 4x gas
+        for (int i = 1; i <= 2; i++) { // 2x gas
             langkah[i] = super.gas(); 
         } 
-        langkah[5] = super.stop(); // 1x stop
-        langkah[6] = this.isiBahanBakar(); // 1x isi bahan bakar
+        langkah[3] = super.stop(); // 1x stop
+        langkah[4] = this.isiBahanBakar(); // 1x isi bahan bakar
         return langkah;
     }
   

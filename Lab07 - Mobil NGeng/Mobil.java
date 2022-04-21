@@ -35,7 +35,7 @@ abstract class Mobil {
                 int X;
                 // Mendapatkan permukaan kendara jenis mobil 
                 if (this.jenis.equals("Air")) {
-                    Z = "Air";
+                    Z = "Laut";
                 } else if (this.jenis.equals("Terbang")) {
                     Z = "Langit";
                 } else if (this.jenis.equals("Truk")) {
@@ -46,7 +46,8 @@ abstract class Mobil {
                 // Mendapatkan jenis bahan bakar mobil
                 Y = this.bahanBakar;
                 // Mendapatkan sisa bahan bakar
-                X = this.engineBehaviour.gas(this.persenFuel);
+                this.persenFuel = this.engineBehaviour.gas(this.persenFuel);
+                X = this.persenFuel;
 
                 return String.format("%s digas dengan cepat di %s! Bahan bakar mobil %s sekarang %d%%.", N, Z, Y, X);
             } else {
