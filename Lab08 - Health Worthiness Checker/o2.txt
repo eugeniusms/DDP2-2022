@@ -1,0 +1,9 @@
+Nama Mahasiswa          | Status
+-------------------------------------------------------
+HZZ                     | Tidak layak mengikuti program
+DEY                     | Layak mengikuti program
+RTE                     | Layak mengikuti program
+KY                      | Tidak layak mengikuti program
+RTS                     | Tidak layak mengikuti program
+YEA                     | Layak mengikuti program
+NIT                     | Tidak layak mengikuti program

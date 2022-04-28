@@ -1,19 +1,23 @@
+// Kelas ini merupakan kelas Mahasiswa
 public class Mahasiswa {
+    // Data field dalam kelas 
     private static int MINIMUM_TINGKAT_KESEHATAN = 70;
     private String nama;
     private int tingkatKesehatan;
 
+    // Constructor Mahasiswa
     public Mahasiswa(String nama, int tingkatKesehatan) {
         this.nama = nama;
         this.tingkatKesehatan = tingkatKesehatan;
     }
 
+    // Method untuk mendapatkan status dari mahasiswa
     public String getStatus() {
-        // TODO: Implementasi method untuk mencetak status tingkat kesehatan mahasiswa
-        // Coba Saja
-        if (this.tingkatKesehatan > 70) {
+        // Saat tingkatKesehatan lebih atau sama dengan MINIMUM_TINGKAT_KESEHATAN maka layak
+        if (this.tingkatKesehatan >= MINIMUM_TINGKAT_KESEHATAN) {
             return "Layak mengikuti program";
         } else {
+            // Setidaknya maka tidak layak
             return "Tidak layak mengikuti program";
         }
         

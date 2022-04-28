@@ -1,0 +1,5 @@
+Nama Mahasiswa          | Status
+-------------------------------------------------------
+LAH                     | Layak mengikuti program
+BYN                     | Layak mengikuti program
+MIR                     | Tidak layak mengikuti program
