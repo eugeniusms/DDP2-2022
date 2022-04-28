@@ -1,0 +1,5 @@
+Nama Mahasiswa          | Status
+-------------------------------------------------------
+Eugenius Mario          | Layak mengikuti program
+Maura Olivia            | Layak mengikuti program
+Anisa Rahma Aulia       | Tidak layak mengikuti program
