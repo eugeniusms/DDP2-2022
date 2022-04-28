@@ -17,14 +17,18 @@ public class DekDepeTalk extends JFrame {
   private JTextField jtfTotalPayment = new JTextField();
 
   Color profileColor = new Color(50, 50, 50);
+  Color chatBackgroundSectionColor = new Color(115, 115, 115);
 
   // Create a Compute Payment button
-  private JButton jbtComputeLoan = new JButton("Visualize");
+  private JButton jbtMessage = new JButton("Visualize Lorem Ipsum Sit Dolor Amet");
   private JButton jbtSendMessage = new JButton("Kirim");
 
   // Online Label
   private JLabel profileName = new JLabel("Dek Depe");
   private JLabel logActivity = new JLabel("Online");
+  private JLabel ketikPesan = new JLabel("Ketik Pesan");
+
+  JPanel p2 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
   public DekDepeTalk() {
     // Panel p1 to hold labels and text fields
@@ -52,21 +56,26 @@ public class DekDepeTalk extends JFrame {
     p1.setBorder(blackline);
 
     // Panel p2 to hold the button
-    JPanel p2 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-    p2.add(jbtComputeLoan);
+    
+    // jbtMessage.setPreferredSize(new Dimension(jbtMessage.getWidth(), 40));
+    p2.add(jbtMessage);
     p2.setBorder(blackline);
+    p2.setBackground(chatBackgroundSectionColor);
 
     // Panel p3 untuk memvisualisasikan grafik
     JPanel p3 = new JPanel(new GridLayout(3,1));
-    p3.add(new JLabel("Ketik Pesan "));
+    ketikPesan.setForeground(Color.WHITE);
+    p3.add(ketikPesan);
     p3.add(jtfTypeChat);
 
     JPanel send = new JPanel(new GridLayout(1,3));
     send.add(new JLabel());
     send.add(new JLabel());
     send.add(jbtSendMessage);
+    send.setBackground(profileColor);
     p3.add(send);
     p3.setBorder(blackline);
+    p3.setBackground(profileColor);
 
     // Add the panels to the frame
     add(p1, BorderLayout.NORTH);
@@ -74,28 +83,15 @@ public class DekDepeTalk extends JFrame {
     add(p3, BorderLayout.SOUTH);
 
     // Register listener
-    jbtComputeLoan.addActionListener(new ButtonListener());
+    jbtSendMessage.addActionListener(new ButtonListener());
   }
 
   /** Handle the Compute Payment button */
   private class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-      // Get values from text fields
-      double interest =
-        Double.parseDouble(jtfAnnualInterestRate.getText());
-      int year = Integer.parseInt(jtfNumberOfYears.getText());
-      double loanAmount =
-        Double.parseDouble(jtfLoanAmount.getText());
-
-      // Create a loan object
-      Loan loan = new Loan(interest, year, loanAmount);
-
-      // Display monthly payment and total payment
-      jtfMonthlyPayment.setText(String.format("%.2f",
-        loan.getMonthlyPayment()));
-      jtfTotalPayment.setText(String.format("%.2f",
-        loan.getTotalPayment()));
+      p2.add(jbtMessage);
+      repaint();
     }
   }
 
