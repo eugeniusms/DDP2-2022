@@ -1,27 +1,31 @@
+// Kelas Pesanan merupakan implementasi dari Comparable<Pesanan>
+// digunakan sebagai blueprint dari sebuah pesanan oleh user
 public class Pesanan implements Comparable<Pesanan> {
-    // TODO: tambahkan attributes
+    // Atribut kelas Pesanan
     private String nama;
     private int harga;
     private int prioritas;
 
+    // Constructor Pesanan
     public Pesanan(String nama, int harga, int prioritas) {
-        // TODO: Lengkapi Constructor berikut
         this.nama = nama;
         this.harga = harga;
         this.prioritas = prioritas;
     }
 
-    // CEK ULANG METHODNYA
+    // compareTo method digunakan untuk membandingkan nilai prioritas pesanan
     @Override
     public int compareTo(Pesanan o) {
-        // TODO: Lengkapi method ini
+        // Jika nilai prioritas lebih tinggi maka return 1
         if (this.prioritas > o.prioritas) {
             return 1;
         }
         return 0;
     }
 
-    // Tambahkan getter-setter bila diperlukan
+    // Getter & Setter
+
+    // Getter nama pesanan
     public String getNama() {
         return this.nama;
     }

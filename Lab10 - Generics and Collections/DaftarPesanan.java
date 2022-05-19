@@ -1,27 +1,29 @@
 import java.util.ArrayList;
 
+// Kelas DaftarPesanan merupakan blueprint arraylist dari daftar pesanan
 public class DaftarPesanan<T extends Pesanan> {
-    // TODO: tambahkan attributes
+    // Atribut daftar pesanan
     private ArrayList<T> pesanans = new ArrayList<>();
     private int pointer;
 
+    // Constructor DaftarPesanan
     public DaftarPesanan() {
-        // TODO: Lengkapi Constructor berikut
         this.pesanans = new ArrayList<>();
         this.pointer = 0;
     }
 
+    // Method untuk menambahkan pesanan
     public void tambahPesanan(T pesanan) {
-        // TODO: proses tambah pesanan
         this.pesanans.add(pesanan);
     }
 
+    // Method untuk mereturn pesanan sesuai prioritas
     public T nextPesanan() {
-        // TODO: return sesuai dengan urutan prioritas
         pointer++;
         return pesanans.get(pointer-1);
     }
 
+    // Method untuk melakukan pengurutan prioritas
     public void urutkanPrioritas() {
         // Bubble Sort
         for (int i = 0; i < pesanans.size(); i++) {
@@ -35,7 +37,9 @@ public class DaftarPesanan<T extends Pesanan> {
         }
     }
 
-    // Tambahkan getter-setter apabila diperlukan
+    // Getter & Setter
+
+    // Getter pointer
     public int getPointer() {
         return this.pointer;
     }
